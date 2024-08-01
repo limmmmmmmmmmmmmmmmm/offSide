@@ -1,5 +1,7 @@
 package Service;
 
-public class memberService {asdasdasd
+public class memberService {
+
+    
 
 }
