@@ -1,0 +1,28 @@
+drop database if exists offside;
+create database offside;
+use  offside;
+
+drop tables if exists member;
+create table member(
+
+    mno int unsigned auto_increment ,
+    mid varchar( 30 ) not null unique,
+    mpw varchar( 30 ) not null,
+    mname varchar( 30 ) not null,
+    mphone varchar( 30 ) not null unique,
+    mgender char(2) not null ,
+    mbirth varchar( 20 ) not null ,
+    maccount varchar( 30 ) not null unique,
+	primary key (mno)
+);
+select * from member;
+
+insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe121'  , '1234'  ,  '원세빈'  , '000-0000-0001' ,'여자', '2003-01-29' , '000-000-00-0000') ;
+insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe122'  , '5678'  ,  '김희진'  , '000-1234-4532' ,'여자', '1994-01-01' , '000-324-32-3525') ;
+insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe123'  , '4353'  ,  '서진표'  , '000-1334-4533' ,'남자', '2000-01-03', '000-334-33-3434') ;
+insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe124'  , '2423'  ,  '임형경'  , '000-1434-4534' ,'남자', '2005-04-03' , '000-344-34-3242') ;
+insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe125'  , '6556'  ,  '강사님'  , '000-1534-4535' ,'남자', '2022-01-31' , '000-354-35-3656') ;
+
+
+
+
