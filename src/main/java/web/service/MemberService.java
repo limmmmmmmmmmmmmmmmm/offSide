@@ -1,4 +1,4 @@
-package web.Service;
+package web.service;
 
 public class MemberService {
 
