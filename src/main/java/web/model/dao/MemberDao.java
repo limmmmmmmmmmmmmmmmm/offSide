@@ -36,10 +36,11 @@ public class MemberDao extends Dao{
     //마이페이지 정보
     public MemberDto mMyInfo() {
         try {
-            String sql = "select * from member where mno = 1 ";
+            String sql = "select * from member where mno = 1";
             PreparedStatement ps =conn.prepareStatement(sql);
             //로그인회원번호 추가
-            //ps.setInt(1,memberDto.getMno() );
+            //ps.setInt(1, 로그인회원번호 추가);
+
             ResultSet rs =ps.executeQuery();
 
             if (rs.next()){
@@ -49,7 +50,7 @@ public class MemberDao extends Dao{
                         .mphone(rs.getString("mphone"))
                         .mgender(rs.getString("mgender"))
                         .mbirth(rs.getString("mbirth"))
-                        .maccount(rs.getString("macount"))
+                        .maccount(rs.getString("maccount"))
                         .build();
             }
         } catch (Exception e) {
