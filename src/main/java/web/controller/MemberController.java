@@ -14,7 +14,7 @@ public class MemberController {
     MemberService memberService;
 
     // [1] 회원가입
-    @PostMapping("/member/signup")
+    @PostMapping("/signup")
     public boolean OffSidSignup(MemberDto memberDto){
         System.out.println("MemberController.OffSidSignup");
         System.out.println("memberService = " + memberService);
