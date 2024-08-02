@@ -26,10 +26,10 @@ public class MemberService {
 
 
 
-
-public MemberDto mMyInfo(){
-    System.out.println("MemberService.mMyInfo");
-    return memberDao.mMyInfo();
-}
+    //[3] 마이페이지
+    public MemberDto mMyInfo(){
+        System.out.println("MemberService.mMyInfo");
+        return memberDao.mMyInfo();
+    }
 
 }
