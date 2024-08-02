@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import web.model.dto.MemberDto;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @Component
 public class MemberDao extends Dao{
