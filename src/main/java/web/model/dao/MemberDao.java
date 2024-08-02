@@ -92,6 +92,11 @@ public class MemberDao extends Dao{
 
 
 
+    // 회원 수정 함수
+    public boolean mUpdate() {
+
+        return false;
+    }   // mUpdate() end
 
 
 

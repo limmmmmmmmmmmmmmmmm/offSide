@@ -82,6 +82,9 @@ public class MemberService {
 
 
 
-
+    // 회원 수정 함수
+    public boolean mUpdate() {
+        return memberDao.mUpdate();
+    }   // mUpdate() end
 
 }

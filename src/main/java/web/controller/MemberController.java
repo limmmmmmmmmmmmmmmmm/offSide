@@ -1,12 +1,10 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.MemberDto;
 import web.service.MemberService;
-import org.springframework.web.bind.annotation.PostMapping;
+
 @RestController
 @RequestMapping("/member")
 public class MemberController {
@@ -56,6 +54,13 @@ public class MemberController {
     public void logout(){
         memberService.logout();
     }
+
+
+    // 회원 수정 함수
+    @PutMapping("/update")
+    public boolean mUpdate() {
+        return memberService.mUpdate();
+    }   // mUpdate() end
 
 
 
