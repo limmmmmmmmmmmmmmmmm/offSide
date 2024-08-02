@@ -6,5 +6,36 @@
 </head>
 <body>
 
+<form>
+    아이디 : <input  onkeyup="idCheck()"  id="id"/>
+    <div class="idCheckBox"></div>
+
+    비밀번호 : <input  onkeyup="pwCheck()"  id="pw" type="password" /> <br/>
+    비밀번호 확인 : <input  onkeyup="pwCheck()"  id="pwConfirm" type="password" />
+    <div class="pwCheckBox"> </div>
+
+    이름 : <input onkeyup="nameCheck()" id="name"/>
+    <div class="nameCheckBox"></div>
+
+    연락처 : <input onkeyup="phoneCheck()" id="phone"/>
+    <div class="phoneCheckBox"></div>
+
+    성별 : <input onkeyup="mgenderCheck()" id = "mgender"/>
+    <div class="mgenderBox"></div>
+
+    생년월일 : <input onkeyup="mbirthCheck()" id = "mbirth"/>
+    <div class="mbirthBox"></div>
+
+    계좌 : <input onkeyup="maccountCheck()" id = "maccount"/>
+    <div class="maccountBox"></div>
+
+    <button type="button" onclick="doSignup()">회원가입</button>
+</form>
+
+<script src="/member/signup.js"></script>
+
+
+
+
 </body>
 </html>
