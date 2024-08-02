@@ -30,4 +30,17 @@ public class MemberController {
         System.out.println("memberService = " + memberService);
         return memberService.mMyInfo();
     }
+
+
+    // 로그인 함수
+    @PostMapping("/login")
+    public boolean mLogin( MemberDto memberDto ){
+        System.out.println("MemberController.mLogin");
+        System.out.println("memberDto = " + memberDto);
+        return memberService.mLogin( memberDto );
+    }
+
+
+
+
 }

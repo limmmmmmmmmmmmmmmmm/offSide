@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import web.model.dto.MemberDto;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @Component
 public class MemberDao extends Dao{
@@ -56,6 +57,23 @@ public class MemberDao extends Dao{
         }
         return null;
     }
+
+    //로그인 함수
+    public int mLogin( MemberDto memberDto ){
+        System.out.println("MemberDao.mLogin");
+        System.out.println("memberDto = " + memberDto);
+        try{String sql = "select * from member where id = ? and pw =?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString( 1 , memberDto.getMid() );
+            ps.setString( 2 , memberDto.getMpw() );
+            ResultSet rs = ps.executeQuery();
+            if( rs.next() ){ return rs.getInt("no"); }
+        }catch (Exception e ){ System.out.println(e);   }
+        return 0; // 0 은 회원번호가 없다 뜻
+    }
+
+
+
 
 
 }// MemberDao end

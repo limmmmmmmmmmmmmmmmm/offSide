@@ -1,5 +1,7 @@
 package web.service;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -9,7 +11,6 @@ import web.model.dto.MemberDto;
 
 
 
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Service
 public class MemberService {
@@ -31,5 +32,27 @@ public MemberDto mMyInfo(){
     System.out.println("MemberService.mMyInfo");
     return memberDao.mMyInfo();
 }
+
+    // 세선 객체 호출
+    @Autowired
+    HttpServletRequest request;
+    public boolean mLogin( MemberDto memberDto ){
+        System.out.println("MemberService.mLogin"); System.out.println("memberDto = " + memberDto);
+        int result =  memberDao.mLogin( memberDto );
+        if( result >= 1 ) { // 만약에 로그인 성공시
+            // - 빌더패턴 : 생성자가 아닌 메소드를 이용한 방식의 객체 생성
+            MemberDto loginDto = MemberDto.builder()
+                    .mno( String.valueOf(result) )
+                    .mid( memberDto.getMid() )
+                    .build();
+            HttpSession session = request.getSession();
+            session.setAttribute( "loginDto", loginDto );
+            return true;
+        }
+        return false;
+    }
+
+
+
 
 }
