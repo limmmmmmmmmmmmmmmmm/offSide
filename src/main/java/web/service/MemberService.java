@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import web.model.dao.MemberDao;
 import web.model.dto.MemberDto;
 
-
+import java.util.Map;
 
 
 @Service
@@ -83,8 +83,15 @@ public class MemberService {
 
 
     // 회원 수정 함수
-    public boolean mUpdate() {
-        return memberDao.mUpdate();
+    public boolean mUpdate(Map<String, String> mUpdateMap) {
+        System.out.println("MemberController.mUpdate");
+        System.out.println("mUpdateMap = " + mUpdateMap);
+
+        // map에 현재 로그인돼있는 회원번호 추가해야 함. 이거 임시.
+        int loginMno = 1;
+        mUpdateMap.put("mno", String.valueOf(loginMno));
+
+        return memberDao.mUpdate(mUpdateMap);
     }   // mUpdate() end
 
 }
