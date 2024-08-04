@@ -107,7 +107,6 @@ public class MemberDao extends Dao{
         System.out.println("mUpdateMap = " + mUpdateMap);
 
         try {
-            //String sql = "update member set mpw = '1111', mname = '원하니', mphone = '010-1111-1111', maccount = '000-111-11-1111' where mno = 1 and mpw = '1234';";
             String sql = "update member set mpw = ?, mname = ?, mphone = ?, maccount = ? where mno = ? and mpw = ?;";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, mUpdateMap.get("newpw"));
@@ -117,16 +116,7 @@ public class MemberDao extends Dao{
             ps.setInt(5, Integer.parseInt(mUpdateMap.get("mno")));     // 여기 나중에 수정해야 할지도
             ps.setString(6, mUpdateMap.get("mpw"));
 
-            System.out.println(mUpdateMap.get("newpw"));
-            System.out.println(mUpdateMap.get("mname"));
-            System.out.println(mUpdateMap.get("mphone"));
-            System.out.println(mUpdateMap.get("maccount"));
-            System.out.println(mUpdateMap.get("mno"));
-            System.out.println(mUpdateMap.get("mpw"));
-
             int count = ps.executeUpdate();
-                System.out.println(count);
-
             if (count == 1) {
                 return true;
             }

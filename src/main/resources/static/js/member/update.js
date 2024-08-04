@@ -14,11 +14,14 @@ function myinfoPrint() {    console.log('myinfoPrint()');
             }
 
             // 회원의 회원 번호, 아이디, 성별, 생년월일 보여주기
-            document.querySelector('.no').innerHTML = `${result.mno}`;
-            document.querySelector('.id').innerHTML = `${result.mid}`;
-            document.querySelector('.gender').innerHTML = `${result.mgender}`;
-            document.querySelector('.birth').innerHTML = `${result.mbirth}`;
+            document.querySelector('.no').value = `${result.mno}`;
+            document.querySelector('.id').value = `${result.mid}`;
+            document.querySelector('.gender').value = `${result.mgender}`;
+            document.querySelector('.birth').value = `${result.mbirth}`;
 
+            document.querySelector('.name').value = `${result.mname}`;
+            document.querySelector('.phone').value = `${result.mphone}`;
+            document.querySelector('.account').value = `${result.maccount}`;
         }   // success end
 
     });  // ajax end
@@ -56,7 +59,7 @@ function memberUpdate() {   console.log('memberUpdate()');
                 alert('회원 정보 수정을 완료했습니다.');
                 location.href = '/member/my/info'
             } else {
-                alert('회원 정보 수정에 실패했습니다.');
+                alert('입력한 정보가 일치하지 않습니다.');
             }
         },
         error : e => {
