@@ -61,6 +61,14 @@ public class MemberDao extends Dao{
 
             if (rs.next()){ //상세 정보는 값이 1개이기 때문에 if 문을 써 결과를 담고 있는 rs 변수에 값이 들어왔는지 확인
                 return MemberDto.builder()
+                        .mno(rs.getString("mno"))
+                        .mid(rs.getString("mid"))
+                        .mpw(rs.getString("mpw"))
+                        .mname(rs.getString("mname"))
+                        .mphone(rs.getString("mphone"))
+                        .mgender(rs.getString("mgender"))
+                        .mbirth(rs.getString("mbirth"))
+                        .maccount(rs.getString("maccount"))
                         .mno(rs.getInt("mno")) //회원 번호 값 확인
                         .mpw(rs.getString("mpw")) // 비밀번호 값 확인
                         .mid(rs.getString("mid")) //아이디 값 확인
@@ -95,7 +103,7 @@ public class MemberDao extends Dao{
 
     // 회원 수정 함수     { mpw : mpw , newpw: newpw , mname : mname , mphone : mphone , maccount : maccount }
     public boolean mUpdate(Map<String, String> mUpdateMap) {
-        System.out.println("MemberController.mUpdate");
+        System.out.println("MemberDao.mUpdate");
         System.out.println("mUpdateMap = " + mUpdateMap);
 
         try {
@@ -109,7 +117,16 @@ public class MemberDao extends Dao{
             ps.setInt(5, Integer.parseInt(mUpdateMap.get("mno")));     // 여기 나중에 수정해야 할지도
             ps.setString(6, mUpdateMap.get("mpw"));
 
+            System.out.println(mUpdateMap.get("newpw"));
+            System.out.println(mUpdateMap.get("mname"));
+            System.out.println(mUpdateMap.get("mphone"));
+            System.out.println(mUpdateMap.get("maccount"));
+            System.out.println(mUpdateMap.get("mno"));
+            System.out.println(mUpdateMap.get("mpw"));
+
             int count = ps.executeUpdate();
+                System.out.println(count);
+
             if (count == 1) {
                 return true;
             }
