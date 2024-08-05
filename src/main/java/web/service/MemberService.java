@@ -78,15 +78,19 @@ public class MemberService {
     }
 
 
-
-
     // 회원 수정 함수
     public boolean mUpdate(Map<String, String> mUpdateMap) {
         System.out.println("MemberService.mUpdate");
         System.out.println("mUpdateMap = " + mUpdateMap);
 
-        // map에 현재 로그인돼있는 회원번호 추가해야 함. 이거 임시.
-        int loginMno = 1;
+        // 1. 현재 로그인된 회원번호 추출
+        MemberDto loginDto = loginCheck();
+        // 2. 로그인이 안 된 상태이면 false
+        if (loginDto == null) return false;
+        // 4. 로그인 정보에서 회원번호만 추출
+        int loginMno = loginDto.getMno();
+
+        // 4. 로그인된 회원번호를 map 엔트리에 추가
         mUpdateMap.put("mno", String.valueOf(loginMno));
 
         return memberDao.mUpdate(mUpdateMap);
@@ -98,13 +102,21 @@ public class MemberService {
         System.out.println("MemberService.mDelete");
         System.out.println("mpw = " + mpw);
 
-        // 로그인된 회원 번호 받아오기 추가해야 함
-        int loginMno = 5;
+        // 1. 현재 로그인된 회원번호 추출
+        MemberDto loginDto = loginCheck();
+        // 2. 로그인이 안 된 상태이면 false
+        if (loginDto == null) return false;
+        // 4. 로그인 정보에서 회원번호만 추출
+        int loginMno = loginDto.getMno();
 
-        return memberDao.mDelete(loginMno, mpw);
+        boolean result = memberDao.mDelete(loginMno, mpw);
 
-        // 회원 탈퇴 성공시 로그아웃 함수 호출하는 거 추가해야 함
+        // 회원 탈퇴 성공시 로그아웃 함수 호출
+        if (result) {
+            logout();
+        }
 
+        return result;
 
     }   // mDelete() end
 

@@ -105,7 +105,7 @@ public class MemberDao extends Dao{
             ps.setString(2, mUpdateMap.get("mname"));
             ps.setString(3, mUpdateMap.get("mphone"));
             ps.setString(4, mUpdateMap.get("maccount"));
-            ps.setInt(5, Integer.parseInt(mUpdateMap.get("mno")));     // 여기 나중에 수정해야 할지도
+            ps.setInt(5, Integer.parseInt(mUpdateMap.get("mno")));
             ps.setString(6, mUpdateMap.get("mpw"));
 
             int count = ps.executeUpdate();
