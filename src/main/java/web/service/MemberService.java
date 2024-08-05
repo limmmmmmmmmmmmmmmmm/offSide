@@ -3,13 +3,11 @@ package web.service;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 import web.model.dao.MemberDao;
 import web.model.dto.MemberDto;
 
-
+import java.util.Map;
 
 
 @Service
@@ -82,6 +80,32 @@ public class MemberService {
 
 
 
+    // 회원 수정 함수
+    public boolean mUpdate(Map<String, String> mUpdateMap) {
+        System.out.println("MemberService.mUpdate");
+        System.out.println("mUpdateMap = " + mUpdateMap);
 
+        // map에 현재 로그인돼있는 회원번호 추가해야 함. 이거 임시.
+        int loginMno = 1;
+        mUpdateMap.put("mno", String.valueOf(loginMno));
+
+        return memberDao.mUpdate(mUpdateMap);
+    }   // mUpdate() end
+
+
+    // 회원 탈퇴 함수
+    public boolean mDelete(String mpw) {
+        System.out.println("MemberService.mDelete");
+        System.out.println("mpw = " + mpw);
+
+        // 로그인된 회원 번호 받아오기 추가해야 함
+        int loginMno = 5;
+
+        return memberDao.mDelete(loginMno, mpw);
+
+        // 회원 탈퇴 성공시 로그아웃 함수 호출하는 거 추가해야 함
+
+
+    }   // mDelete() end
 
 }

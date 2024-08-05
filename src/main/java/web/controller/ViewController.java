@@ -11,7 +11,7 @@ public class ViewController {
         return "/index.html";   // templates 폴더내 반환할 경로와 파일명
     }
 
-    // ======== [2] 회원관련 =============== //
+    // ==================== [2] 회원관련 ==================== //
     // [1] 회원가입
     @GetMapping("/member/signup")
     public String OffSidSignup(){ return "/member/signup.html"; }
@@ -32,6 +32,12 @@ public class ViewController {
     @GetMapping("/member/update")
     public String mUpdate() {
         return "/member/update.html";
+    }
+
+    // 5. 회원 탈퇴 페이지 요청
+    @GetMapping("/member/delete")
+    public String mDelete() {
+        return "/member/delete.html";
     }
 
 

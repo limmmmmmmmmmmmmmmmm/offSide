@@ -5,6 +5,16 @@
     <title>Title</title>
 </head>
 <body>
+    <div th:replace="~{ /header.html :: header }"></div>
 
+    <form>
+        <div> 비밀번호 : <input type="password" class="pw" /> </div>
+        <div> <!-- 비밀번호 확인 : <input type="password" class="pwcheck" />--> </div>
+
+        <button type="button" onclick="memberDelete()">탈퇴</button>
+    </form>
+
+    <script src="/js/member/delete.js"></script>
+    <div th:replace="~{ /footer.html :: footer }"></div>
 </body>
 </html>

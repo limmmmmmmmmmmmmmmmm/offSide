@@ -1,12 +1,12 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import web.model.dto.MemberDto;
 import web.service.MemberService;
-import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Map;
+
 @RestController
 @RequestMapping("/member")
 public class MemberController {
@@ -57,6 +57,22 @@ public class MemberController {
         memberService.logout();
     }
 
+
+    // 회원 수정 함수
+    @PutMapping("/update")
+    public boolean mUpdate(@RequestBody Map<String, String> mUpdateMap) {
+        System.out.println("MemberController.mUpdate");
+        System.out.println("mUpdateMap = " + mUpdateMap);
+        return memberService.mUpdate(mUpdateMap);
+    }   // mUpdate() end
+
+    // 회원 탈퇴 함수
+    @DeleteMapping("/delete")
+    public boolean mDelete(String mpw) {
+        System.out.println("MemberController.mDelete");
+        System.out.println("mpw = " + mpw);
+        return memberService.mDelete(mpw);
+    }   // mDelete() end
 
 
 

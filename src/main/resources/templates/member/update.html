@@ -5,7 +5,26 @@
     <title>Title</title>
 </head>
 <body>
-    회원수정페이지
+    <div th:replace="~{ /header.html :: header }"></div>
 
+    회원 수정 페이지
+
+    <form>
+        <div> 회원 번호 : <input type="text" class="no" disabled /> </div>
+        <div> 아이디 : <input type="text" class="id" disabled /> </div>
+        <div> 기존 비밀번호 : <input type="password" class="pw" /> </div>
+        <div> 새로운 비밀번호 : <input type="password" class="newpw" /> </div>
+        <!-- <div> 새로운 비밀번호 확인 : <input type="password" class="newpwcheck" /> </div> -->
+        <div> 이름 : <input type="text" class="name" /> </div>
+        <div> 연락처 : <input type="text" class="phone" /> </div>
+        <div> 성별 : <input type="text" class="gender" disabled /> </div>
+        <div> 생년월일 : <input type="text" class="birth" disabled /> </div>
+        <div> 계좌번호 : <input type="text" class="account" /> </div>
+
+        <button type="button" onclick="memberUpdate()">수정</button>
+    </form>
+
+    <script src="/js/member/update.js"></script>
+    <div th:replace="~{ /footer.html :: footer }"></div>
 </body>
 </html>

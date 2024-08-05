@@ -5,6 +5,7 @@ import web.model.dto.MemberDto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Map;
 
 @Component
 public class MemberDao extends Dao{
@@ -92,9 +93,49 @@ public class MemberDao extends Dao{
 
 
 
+    // 회원 수정 함수     { mpw : mpw , newpw: newpw , mname : mname , mphone : mphone , maccount : maccount }
+    public boolean mUpdate(Map<String, String> mUpdateMap) {
+        System.out.println("MemberDao.mUpdate");
+        System.out.println("mUpdateMap = " + mUpdateMap);
 
+        try {
+            String sql = "update member set mpw = ?, mname = ?, mphone = ?, maccount = ? where mno = ? and mpw = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, mUpdateMap.get("newpw"));
+            ps.setString(2, mUpdateMap.get("mname"));
+            ps.setString(3, mUpdateMap.get("mphone"));
+            ps.setString(4, mUpdateMap.get("maccount"));
+            ps.setInt(5, Integer.parseInt(mUpdateMap.get("mno")));     // 여기 나중에 수정해야 할지도
+            ps.setString(6, mUpdateMap.get("mpw"));
 
+            int count = ps.executeUpdate();
+            if (count == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("MemberDao -> mUpdate -> e = " + e);
+        }
+        return false;
+    }   // mUpdate() end
 
+    // 회원 탈퇴 함수
+    public boolean mDelete(int loginMno, String mpw) {
+        System.out.println("MemberDao.mDelete");
+        System.out.println("loginMno = " + loginMno + ", mpw = " + mpw);
+        try {
+            String sql = "delete from member where mno = ? and mpw = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, loginMno);
+            ps.setString(2, mpw);
+            int count = ps.executeUpdate();
+            if (count == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("MemberDao -> mDelete -> e = " + e);
+        }
+        return false;
+    }   // mDelete() end
 
 }// MemberDao end
 
