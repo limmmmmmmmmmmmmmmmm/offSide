@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 2. css  호출--->
+    <link href="/css/signup.css" rel="stylesheet">
 </head>
+
 <body>
+    <div th:replace="~{ /header.html :: header }"></div>
 
-<form>
-    아이디 : <input  onkeyup="idCheck()"  id="id"/>
-    <div class="idCheckBox"></div>
+    <div id="mainSignup">
+        아이디 : <input onkeyup="idCheck()" id="id" class="container"/>
+        <div class="idCheckBox"></div>
 
-    비밀번호 : <input  onkeyup="pwCheck()"  id="pw" type="password" /> <br/>
-    비밀번호 확인 : <input  onkeyup="pwCheck()"  id="pwConfirm" type="password" />
-    <div class="pwCheckBox"> </div>
+        비밀번호 : <input onkeyup="pwCheck()" id="pw" type="password" class="container" /> <br />
+        비밀번호 확인 : <input onkeyup="pwCheck()" id="pwConfirm" type="password" class="container" />
+        <div class="pwCheckBox"> </div>
 
-    이름 : <input onkeyup="nameCheck()" id="name"/>
-    <div class="nameCheckBox"></div>
+        이름 : <input onkeyup="nameCheck()" id="name" class="container" />
+        <div class="nameCheckBox"></div>
 
-    연락처 : <input onkeyup="phoneCheck()" id="phone"/>
-    <div class="phoneCheckBox"></div>
+        연락처 : <input onkeyup="phoneCheck()" id="phone" class="container" />
+        <div class="phoneCheckBox"></div>
 
-    성별 : <input onkeyup="mgenderCheck()" id = "mgender"/>
-    <div class="mgenderBox"></div>
+        성별 : <select id="mgender">
+            <option value="남자">남자</option>
+            <option value="여자">여자</option>
+        </select></br>
 
-    생년월일 : <input onkeyup="mbirthCheck()" id = "mbirth"/>
-    <div class="mbirthBox"></div>
+        <h3>생년월일 선택</h3>
+        <div id="mbirth">
+            <select id="year">
+                <option value="">년도</option>
+            </select>
+            <select id="month">
+                <option value="">월</option>
+            </select>
+            <select id="day">
+                <option value="">일</option>
+            </select>
+        </div>
 
-    계좌 : <input onkeyup="maccountCheck()" id = "maccount"/>
-    <div class="maccountBox"></div>
+        계좌 : <input onkeyup="maccountCheck()" id="maccount" class="container" />
+        <div class="maccountBox"></div>
 
-    <button type="button" onclick="doSignup()">회원가입</button>
-</form>
+        <button type="button" onclick="doSignup()">회원가입</button>
+    </div>
 
-<script src="/js/member/signup.js"></script>
-
+    <script src="/js/member/signup.js"></script>
 
 
 
 </body>
+
 </html>

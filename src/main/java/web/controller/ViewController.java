@@ -28,7 +28,6 @@ public class ViewController {
         return "/member/login.html";
     }
 
-
     // 4. 회원 수정 페이지 요청
     @GetMapping("/member/update")
     public String mUpdate() {

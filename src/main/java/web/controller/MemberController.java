@@ -22,6 +22,12 @@ public class MemberController {
         return memberService.OffSidSignup(memberDto);
     }
 
+    // 아이디 중복검사
+    @GetMapping("/idcheck")
+    public boolean mIdCheck( String id ){
+        return memberService.mIdCheck( id );
+    }
+
 
     // 마이페이지 정보
     @GetMapping("/my/info2")

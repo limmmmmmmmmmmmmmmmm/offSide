@@ -24,7 +24,10 @@ public class MemberService {
         System.out.println("memberDao = " + memberDao);
         return memberDao.OffSidSignup(memberDto);
     }
-
+    //  아이디 중복검사
+    public boolean mIdCheck( String id ){
+        return memberDao.mIdCheck( id );
+    }
 
 
     //[3] 마이페이지
