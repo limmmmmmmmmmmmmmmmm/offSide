@@ -66,6 +66,13 @@ public class MemberController {
         return memberService.mUpdate(mUpdateMap);
     }   // mUpdate() end
 
+    // 회원 탈퇴 함수
+    @DeleteMapping("/delete")
+    public boolean mDelete(String mpw) {
+        System.out.println("MemberController.mDelete");
+        System.out.println("mpw = " + mpw);
+        return memberService.mDelete(mpw);
+    }   // mDelete() end
 
 
 

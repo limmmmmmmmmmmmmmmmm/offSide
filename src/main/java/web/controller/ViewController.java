@@ -34,5 +34,11 @@ public class ViewController {
         return "/member/update.html";
     }
 
+    // 5. 회원 탈퇴 페이지 요청
+    @GetMapping("/member/delete")
+    public String mDelete() {
+        return "/member/delete.html";
+    }
+
 
 }

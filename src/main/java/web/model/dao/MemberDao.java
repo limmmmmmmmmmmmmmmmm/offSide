@@ -61,7 +61,7 @@ public class MemberDao extends Dao{
 
             if (rs.next()){ //상세 정보는 값이 1개이기 때문에 if 문을 써 결과를 담고 있는 rs 변수에 값이 들어왔는지 확인
                 return MemberDto.builder()
-                        .mno(rs.getString("mno"))
+                        .mno(rs.getInt("mno"))
                         .mid(rs.getString("mid"))
                         .mpw(rs.getString("mpw"))
                         .mname(rs.getString("mname"))
@@ -126,6 +126,24 @@ public class MemberDao extends Dao{
         return false;
     }   // mUpdate() end
 
+    // 회원 탈퇴 함수
+    public boolean mDelete(int loginMno, String mpw) {
+        System.out.println("MemberDao.mDelete");
+        System.out.println("loginMno = " + loginMno + ", mpw = " + mpw);
+        try {
+            String sql = "delete from member where mno = ? and mpw = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, loginMno);
+            ps.setString(2, mpw);
+            int count = ps.executeUpdate();
+            if (count == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("MemberDao -> mDelete -> e = " + e);
+        }
+        return false;
+    }   // mDelete() end
 
 
 
