@@ -18,13 +18,12 @@ public class MemberController {
     public boolean OffSidSignup(MemberDto memberDto){
         System.out.println("MemberController.OffSidSignup");
         System.out.println("memberService = " + memberService);
-
         return memberService.OffSidSignup(memberDto);
     }
 
 
     // 마이페이지 정보
-    @GetMapping("/my/info2")
+    @GetMapping("/my/info2") //
     public MemberDto mMyInfo(){
         System.out.println("MemberController.mMyInfo");
         System.out.println("memberService = " + memberService);
@@ -38,6 +37,18 @@ public class MemberController {
         System.out.println("MemberController.mLogin");
         System.out.println("memberDto = " + memberDto);
         return memberService.mLogin( memberDto );
+    }
+
+    // 로그인 체크
+    @GetMapping("/login/check")
+    public MemberDto mLoginCheck( ){
+        return memberService.loginCheck();
+    }
+
+    // 로그아웃
+    @GetMapping("/logout")
+    public void logout(){
+        memberService.logout();
     }
 
 

@@ -7,7 +7,7 @@ import lombok.*;
 @ToString@NoArgsConstructor
 @AllArgsConstructor
 public class MemberDto {
-    private String mno;         //회원 번호
+    private int mno;         //회원 번호
     private String mid;         //회원 ID
     private String mpw;         //회원 PW
     private String mname;       //회원 이름
