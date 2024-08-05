@@ -46,44 +46,51 @@ public class MemberDao extends Dao{
 
 
     //마이페이지 정보
-    public MemberDto mMyInfo() {
-        try {
-            String sql = "select * from member where mno = 1";
-            PreparedStatement ps =conn.prepareStatement(sql);
+    public MemberDto mMyInfo(int loginMno) {//MemberDto 타입의 mMyInfo라는 이름의 공용 멤버 변수를 클래스 내에서 선언
+        System.out.println("MemberDao.mMyInfo"); //확인
+        System.out.println("conn = " + conn); //확인
+        try {//예외 처리
+            String sql = "select * from member where mno = ?"; //회원번호를 찾아 회원의 상세정보를 출력시키는 sql 문
+            PreparedStatement ps =conn.prepareStatement(sql); //주어진 SQL 쿼리(sql)를 준비하는 PreparedStatement 객체(ps)를 생성
             //로그인회원번호 추가
             //ps.setInt(1, 로그인회원번호 추가);
+            ps.setInt(1, loginMno);
 
-            ResultSet rs =ps.executeQuery();
+            ResultSet rs =ps.executeQuery(); // PreparedStatement를 사용하여 실행한 쿼리의 결과를 담고 있는 ResultSet 객체를 얻음
 
-            if (rs.next()){
+            if (rs.next()){ //상세 정보는 값이 1개이기 때문에 if 문을 써 결과를 담고 있는 rs 변수에 값이 들어왔는지 확인
                 return MemberDto.builder()
-                        .mid(rs.getString("mid"))
-                        .mname(rs.getString("mname"))
-                        .mphone(rs.getString("mphone"))
-                        .mgender(rs.getString("mgender"))
-                        .mbirth(rs.getString("mbirth"))
-                        .maccount(rs.getString("maccount"))
+                        .mno(rs.getInt("mno")) //회원 번호 값 확인
+                        .mpw(rs.getString("mpw")) // 비밀번호 값 확인
+                        .mid(rs.getString("mid")) //아이디 값 확인
+                        .mname(rs.getString("mname")) // 회원이름 확인
+                        .mphone(rs.getString("mphone")) // 연락처 확인
+                        .mgender(rs.getString("mgender")) //성별 확인
+                        .mbirth(rs.getString("mbirth")) //생일 확인
+                        .maccount(rs.getString("maccount")) //환불계좌 확인
                         .build();
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-        return null;
+        return null; //rs 에 값이 담기지 않았을 경우 null값으로 표시
     }
 
     //로그인 함수
     public int mLogin( MemberDto memberDto ){
         System.out.println("MemberDao.mLogin");
         System.out.println("memberDto = " + memberDto);
-        try{String sql = "select * from member where id = ? and pw =?";
+        try{String sql = "select * from member where mid = ? and mpw =?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString( 1 , memberDto.getMid() );
             ps.setString( 2 , memberDto.getMpw() );
             ResultSet rs = ps.executeQuery();
-            if( rs.next() ){ return rs.getInt("no"); }
+            if( rs.next() ){ return rs.getInt("mno"); }
         }catch (Exception e ){ System.out.println(e);   }
         return 0; // 0 은 회원번호가 없다 뜻
     }
+
+
 
 
 
