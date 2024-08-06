@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- 2. css  호출--->
+    <link href="/css/login.css" rel="stylesheet">
 </head>
 <body>
 <div th:replace="~{ /header.html :: header }"></div>
-<div>아이디</div>
+<div id="ID">아이디</div>
 <input class="memberId"/> <br/>
 
-<div>비밀번호 </div>
+<div id="PW">비밀번호 </div>
 <input class="memberPw" /> <br/>
 
 <div id="part">
