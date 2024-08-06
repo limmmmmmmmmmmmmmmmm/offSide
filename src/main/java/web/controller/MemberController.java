@@ -23,8 +23,8 @@ public class MemberController {
 
     // 아이디 중복검사
     @GetMapping("/idcheck")
-    public boolean mIdCheck( String id ){
-        return memberService.mIdCheck( id );
+    public boolean mIdCheck( String mid ){
+        return memberService.mIdCheck( mid );
     }
 
 
