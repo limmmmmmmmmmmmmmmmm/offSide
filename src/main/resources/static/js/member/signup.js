@@ -3,6 +3,9 @@ let checkArray = [false, false, false, false, false, false];
 
 //    아이디, 비밀번호 ,이름 , 전화번호 , 계좌번호
 function doSignup() {
+
+
+
     console.log('doSignup()');
     // 1. 입력값 가져오기
     let mid = document.querySelector('#id').value;
@@ -10,8 +13,12 @@ function doSignup() {
     let mname = document.querySelector('#name').value;
     let mphone = document.querySelector('#phone').value;
     let mgender = document.querySelector('#mgender').value;
-    let mbirth = document.querySelector('#mbirth').value;
+    let year = document.querySelector('#year').value;
+    let month = document.querySelector('#month').value;
+    let day = document.querySelector('#day').value;
     let maccount = document.querySelector('#maccount').value;
+    let mbirth = year +"-"+ month +"-"+ day
+    console.log(mbirth)
 
     // 2. 객체
     let info = {
@@ -38,17 +45,17 @@ function doSignup() {
 
 // 2. 아이디 유효성 검사
 function idCheck() {
-    let id = document.querySelector('#id').value;
+    let mid = document.querySelector('#id').value;
     let idCheckBox = document.querySelector('.idCheckBox');
 
-    let idReg = /^[a-zA-Z0-9]{5,30}$/;
-
-    if (idReg.test(id)) {
+    let idReg = /^[a-zA-Z0-9]{3,30}$/;
+    // 아이디 중복검사 REST 통신
+    if (idReg.test(mid)) {
         $.ajax({
             async: false,
             method: "get",
             url: "/member/idcheck",
-            data: { id: id },
+            data: { mid: mid },
             success: (result) => {
                 idCheckBox.innerHTML = `사용중인 아이디`;
                 checkArray[0] = false;
@@ -62,7 +69,7 @@ function idCheck() {
             } // success method end
         }); // ajax end
     } else {
-        idCheckBox.innerHTML = `영대소문자 와 숫자 조합의 5~30 글자 사이 가능합니다.`;
+        idCheckBox.innerHTML = `영대소문자 와 숫자 조합의 3~30 글자 사이 가능합니다.`;
         checkArray[0] = false;
     }
 } // method end
