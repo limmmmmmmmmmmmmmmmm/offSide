@@ -7,22 +7,58 @@
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
 
-    회원 수정 페이지
+    회원 수정 페이지 <br><br>
 
     <form>
-        <div> 회원 번호 : <input type="text" class="no" disabled /> </div>
-        <div> 아이디 : <input type="text" class="id" disabled /> </div>
-        <div> 기존 비밀번호 : <input type="password" class="pw" /> </div>
-        <div> 새로운 비밀번호 : <input type="password" class="newpw" /> </div>
-        <!-- <div> 새로운 비밀번호 확인 : <input type="password" class="newpwcheck" /> </div> -->
-        <div> 이름 : <input type="text" class="name" /> </div>
-        <div> 연락처 : <input type="text" class="phone" /> </div>
-        <div> 성별 : <input type="text" class="gender" disabled /> </div>
-        <div> 생년월일 : <input type="text" class="birth" disabled /> </div>
-        <div> 계좌번호 : <input type="text" class="account" /> </div>
+        <div>
+            회원 번호 <br>
+            <input type="text" class="no" disabled />
+        </div> <br>
+
+        <div>
+            아이디 <br>
+            <input type="text" class="id" disabled />
+        </div> <br>
+
+        <div>
+            기존 비밀번호 <br>
+            <input type="password" class="pw" />
+        </div> <br>
+
+        <div>
+            새로운 비밀번호 <br>
+            <input type="password" class="newpw" />
+        </div> <br>
+
+        <!-- <div> 새로운 비밀번호 확인 : <input type="password" class="newpwcheck" /> </div> <br> -->
+        
+        <div>
+            이름 <br>
+            <input type="text" class="name" />
+        </div> <br>
+
+        <div>
+            연락처 <br>
+            <input type="text" class="phone" />
+        </div> <br>
+
+        <div>
+            성별 <br>
+            <input type="text" class="gender" disabled />
+        </div> <br>
+
+        <div>
+            생년월일 <br>
+            <input type="text" class="birth" disabled />
+        </div> <br>
+
+        <div>
+            계좌번호 <br>
+            <input type="text" class="account" />
+        </div> <br>
 
         <button type="button" onclick="memberUpdate()">수정</button>
-    </form>
+    </form> <br>
 
     <script src="/js/member/update.js"></script>
     <div th:replace="~{ /footer.html :: footer }"></div>
