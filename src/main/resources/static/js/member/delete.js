@@ -14,7 +14,7 @@ function memberDelete() {
                 alert('회원 탈퇴에 성공했습니다.')
                 location.href = '/'
             } else {
-                alert('입력한 정보가 일치하지 않습니다.');
+                alert('비밀번호가 일치하지 않습니다.');
             }
         }
 
