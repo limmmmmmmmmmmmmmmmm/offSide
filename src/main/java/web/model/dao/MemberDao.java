@@ -34,11 +34,11 @@ public class MemberDao extends Dao{
     } // OffSidSignup end
 
     //  아이디 중복 검사
-    public boolean mIdCheck( String id ){  System.out.println("MemberDao.mIdCheck"); System.out.println("id = " + id);
+    public boolean mIdCheck( String mid ){  System.out.println("MemberDao.mIdCheck");
 
-        try{ String sql = "select id from member where binary(id) = ? ";
+        try{ String sql = "select mid from member where binary(mid) = ? ";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString( 1 , id );
+            ps.setString( 1 , mid );
             ResultSet rs = ps.executeQuery();
             if( rs.next() ){ return true; }
         }catch (Exception e ){ System.out.println(e); }
