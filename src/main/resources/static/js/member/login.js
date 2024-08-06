@@ -20,11 +20,11 @@ $.ajax({
         }else{
             alert('로그인실패');
         }
-        console.log(' 다 나왔나???')
+      
     }
 
 })
-console.log('여기도 이제 마지막');
+
 
 
 
