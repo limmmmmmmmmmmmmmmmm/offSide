@@ -19,8 +19,10 @@ public class BoardController {
 
 
     // 게시물 삭제
-    @DeleteMapping("/")
-    public boolean Bdelete(){}
+    @DeleteMapping("/delete")
+    public boolean bDelete(int bno){
+        return boardService.bDelete(bno);
+    }
 
 
 }

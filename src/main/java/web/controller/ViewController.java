@@ -40,5 +40,11 @@ public class ViewController {
         return "/member/delete.html";
     }
 
+    // 게시판 삭제
+    @GetMapping("/board/delete")
+    public String bDelete(){
+        return "/board/delete.html";
+    }
+
 
 }
