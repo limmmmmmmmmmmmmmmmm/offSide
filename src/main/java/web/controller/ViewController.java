@@ -52,11 +52,7 @@ public class ViewController {
         return "/board/delete.html";
     }
 
-    // ==================== [3] 관리자관련 ==================== //
-    @GetMapping("/admin/index")
-    public String admiMain(){ return "/admin/manager.html"; }
-
-    // ==================== [4] 구장관련 ==================== //
+    // ==================== [3] 구장관련 ==================== //
     @GetMapping("/admin/board")
     public String BoardMain(){ return "/board/board.html"; }
 
