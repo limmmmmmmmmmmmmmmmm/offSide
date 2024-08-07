@@ -29,13 +29,14 @@ public class BoardController {
         return boardService.bwrite(boardDto);
     }
 
-//    // 게시판 수정
-//    @PutMapping("/update")
-//    public boolean bUpdate(@RequestBody Map<String, String> map){
-//        System.out.println("BoardController.bUpdate");
-//        System.out.println("map = " + map);
-//        return boardService.bUpdate(map);
-//    }   // bUpdate() end
+
+    // 게시판 수정
+    @PutMapping("/update")
+    public boolean bUpdate(@RequestBody Map<String, String> map){
+        System.out.println("BoardController.bUpdate");
+        System.out.println("map = " + map);
+        return boardService.bUpdate(map);
+    }   // bUpdate() end
 
 
     // 게시물 삭제

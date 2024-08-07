@@ -22,7 +22,6 @@ public class ViewController {
     @GetMapping("/board/update")
     public String bUpdate(){return "/board/update.html"; }
 
-
     @GetMapping("/member/my/info")
     public String mMyPage(){
         return "/member/myinfo.html";
