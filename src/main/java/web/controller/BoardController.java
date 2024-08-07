@@ -13,10 +13,6 @@ public class BoardController {
     BoardService boardService;
 
 
-
-
-
-
     // 게시판 수정
     @PutMapping("/update")
     public boolean bUpdate(@RequestBody Map<String, String> map){
@@ -31,6 +27,5 @@ public class BoardController {
     public boolean bDelete(int bno){
         return boardService.bDelete(bno);
     }
-
 
 }

@@ -18,9 +18,8 @@ public class ViewController {
     public String OffSidSignup(){ return "/member/signup.html"; }
 
     // 6. 게시판(구장) 수정 페이지 요청
-    @PutMapping("/board/update")
+    @GetMapping("/board/update")
     public String bUpdate(){return "/board/update.html"; }
-
 
     @GetMapping("/member/my/info")
     public String mMyPage(){
