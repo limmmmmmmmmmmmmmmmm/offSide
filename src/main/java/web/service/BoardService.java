@@ -28,6 +28,8 @@ public class BoardService {
 
     // 게시물 삭제
     public boolean bDelete(int bno){
+        System.out.println("BoardService.bDelete");
+        System.out.println("bno = " + bno);
         return boardDao.bDelete(bno);
     }
 }

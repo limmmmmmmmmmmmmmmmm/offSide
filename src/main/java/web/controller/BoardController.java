@@ -25,19 +25,20 @@ public class BoardController {
 
 
 
-
-//    // 게시판 수정
-//    @PutMapping("/update")
-//    public boolean bUpdate(@RequestBody Map<String, String> map){
-//        System.out.println("BoardController.bUpdate");
-//        System.out.println("map = " + map);
-//        return boardService.bUpdate(map);
-//    }   // bUpdate() end
+    // 게시판 수정
+    @PutMapping("/update")
+    public boolean bUpdate(@RequestBody Map<String, String> map){
+        System.out.println("BoardController.bUpdate");
+        System.out.println("map = " + map);
+        return boardService.bUpdate(map);
+    }   // bUpdate() end
 
 
     // 게시물 삭제
     @DeleteMapping("/delete")
     public boolean bDelete(int bno){
+        System.out.println("BoardController.bDelete");
+        System.out.println("bno = " + bno);
         return boardService.bDelete(bno);
     }
 
