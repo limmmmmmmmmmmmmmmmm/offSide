@@ -1,0 +1,28 @@
+
+
+*{
+    border: 2px solid red;
+    box-sizing: border-box;
+    padding: 10px;
+    list-style-type: none
+    
+ }
+
+#wrap{
+  padding: 100px;
+  width: 500px;
+  height: 50px;
+}
+.memberId{
+
+    width: 400px;
+}
+.memberPw{
+    width: 400px;
+}
+
+#part{
+  display: flex;
+}
+
+
