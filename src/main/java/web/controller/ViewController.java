@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @Controller
 public class ViewController {
@@ -18,7 +19,7 @@ public class ViewController {
     public String OffSidSignup(){ return "/member/signup.html"; }
 
     // 6. 게시판(구장) 수정 페이지 요청
-    @PutMapping("/board/update")
+    @GetMapping("/board/update")
     public String bUpdate(){return "/board/update.html"; }
 
 
@@ -45,11 +46,6 @@ public class ViewController {
         return "/member/delete.html";
     }
 
-    // 게시판 삭제
-    @GetMapping("/board/delete")
-    public String bDelete(){
-        return "/board/delete.html";
-    }
 
     // ==================== [3] 관리자관련 ==================== //
     @GetMapping("/admin/index")

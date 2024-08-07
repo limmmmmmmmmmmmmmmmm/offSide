@@ -17,8 +17,10 @@ public class BoardDao extends Dao{
 
     // 게시물 삭제
     public boolean bDelete(int bno){
+        System.out.println("BoardDao.bDelete");
+        System.out.println("bno = " + bno);
         try {
-            String sql = "delete from member where bno = ?";
+            String sql = "delete from board where bno = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1 , bno);
 
