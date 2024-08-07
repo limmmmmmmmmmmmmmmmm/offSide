@@ -1,0 +1,32 @@
+*{
+    border: 2px solid red;
+    box-sizing: border-box;
+    padding: 10px;
+    list-style-type: none
+    
+ }
+ #wrap{
+    width: 500px;
+    height: 50px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 자식 요소들이 수직으로 정렬되게 함 */
+  }
+
+
+#loginMenu{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.Logo{
+   width: 100px;
+
+}
+/* #info{
+    display: flex;
+} */
+
+
