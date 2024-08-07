@@ -8,20 +8,24 @@
 </head>
 <body>
 <div th:replace="~{ /header.html :: header }"></div>
-<div id="ID">아이디</div>
-<input class="memberId"/> <br/>
 
-<div id="PW">비밀번호 </div>
-<input class="memberPw" /> <br/>
+<div id="wrap">
+        <div id="ID">아이디</div>
+        <input class="memberId"/> <br/>
 
-<div id="part">
-<button type="button" onclick="login()">로그인</button>
-<p class="memberSign" ><a href="/member/signup.html"> 회원가입</a></p>
+        <div id="PW">비밀번호 </div>
+        <input class="memberPw" /> <br/>
+
+        <div id="part">
+        <button type="button" onclick="login()">로그인</button>
+        <p class="memberSign" ><a href="/member/signup.html"> 회원가입</a></p>
+
+        </div>
 
 </div>
 
-
 <script src="/js/member/login.js"></script>
 <div th:replace="~{ /footer.html :: footer }"></div>
+
 </body>
 </html>
