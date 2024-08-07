@@ -17,15 +17,14 @@ public class BoardService {
     @Autowired
     BoardDao boardDao;
 
+    @Autowired
+    MemberService memberService;
+
     // 구장 목록 출력
     public List<BoardDto> bPrint() {
         System.out.println("BoardService.bPrint");
         return boardDao.bPrint();
     }
-
-
-    @Autowired
-    MemberService memberService;
 
     //게시물 등록
     public boolean bwrite(BoardDto boardDto){
@@ -50,8 +49,6 @@ public class BoardService {
 
     // 게시물 삭제
     public boolean bDelete(int bno){
-        System.out.println("BoardService.bDelete");
-        System.out.println("bno = " + bno);
         return boardDao.bDelete(bno);
     }
 }
