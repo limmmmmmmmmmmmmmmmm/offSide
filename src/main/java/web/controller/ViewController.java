@@ -18,7 +18,7 @@ public class ViewController {
     public String OffSidSignup(){ return "/member/signup.html"; }
 
     // 6. 게시판(구장) 수정 페이지 요청
-    @PutMapping("/board/update")
+    @GetMapping("/board/update")
     public String bUpdate(){return "/board/update.html"; }
 
 
@@ -51,11 +51,7 @@ public class ViewController {
         return "/board/delete.html";
     }
 
-    // ==================== [3] 관리자관련 ==================== //
-    @GetMapping("/admin/index")
-    public String admiMain(){ return "/admin/manager.html"; }
-
-    // ==================== [4] 구장관련 ==================== //
+    // ==================== [3] 구장관련 ==================== //
     @GetMapping("/admin/board")
     public String BoardMain(){ return "/board/board.html"; }
 
