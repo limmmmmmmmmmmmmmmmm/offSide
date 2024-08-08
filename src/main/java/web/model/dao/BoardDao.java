@@ -69,11 +69,12 @@ public class BoardDao extends Dao{
 
     //수정할 게시물 출력
     public BoardDto bRead(int bno){
-
+        try {
             String sql = "select* from board where bno = 2;";
-            ps.setInt(1,bno);
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bno);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 BoardDto boardDto = BoardDto.builder()
                         .btitle(rs.getString("btitle"))
                         .btitle(rs.getString("baddress"))
@@ -82,7 +83,12 @@ public class BoardDao extends Dao{
                         .build();
                 System.out.println(boardDto);
                 return boardDto;
+            }
+        }catch (Exception e){   System.out.println(e);      }
+
         return null;
+    }
+
     //게시물 수정
 //    public boolean bUpdate(Map<String, String> map) {
 //        System.out.println("BoardDao.bUpdate");
@@ -121,5 +127,6 @@ public class BoardDao extends Dao{
 
         }catch (Exception e){ System.out.println(e); }
         return false;
+
     } // Bdelete end
 }   // BoardDao end

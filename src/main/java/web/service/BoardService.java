@@ -14,8 +14,9 @@ import java.util.Map;
 
 @Service
 public class BoardService {
-    @Autowired BoardDao boardDao;
+
     @Autowired MemberService memberService;
+    @Autowired BoardDao boardDao;
 
     // 구장 목록 출력
     public List<BoardDto> bPrint() {
@@ -47,4 +48,7 @@ public class BoardService {
     public boolean bDelete(int bno){
         return boardDao.bDelete(bno);
     }
+
+
+
 }
