@@ -65,29 +65,53 @@ public class BoardDao extends Dao{
 
 
 
-    // 게시물 수정
-    public boolean bUpdate(Map<String, String> map) {
-        System.out.println("BoardDao.bUpdate");
-        System.out.println("map = " + map);
+    // 게시물 수정===========================================================
+
+    //수정할 게시물 출력
+    public BoardDto bRead(int bno){
         try {
-            String sql = "update board set btitle = ? , baddress = ? , bdatetime = ? , bprice=? , bfile1 = ? ,bfile2 =? where bno = ?";
+            String sql = "select* from board where bno = 2;";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1 , map.get("btitle"));
-            ps.setString(2 , map.get("bcontent"));
-            ps.setString(3 , map.get("bdatetime"));
-            ps.setInt(4,Integer.parseInt(map.get("bprice")));
-            ps.setString(5 , map.get("bfile1"));
-            ps.setString(6 , map.get("bfile2"));
-            int count = ps.executeUpdate();
-            if(count==1){
-                return true;
+            ps.setInt(1,bno);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                BoardDto boardDto = BoardDto.builder()
+                        .btitle(rs.getString("btitle"))
+                        .btitle(rs.getString("baddress"))
+                        .btitle(rs.getString("bdatetime"))
+                        .bprice(rs.getInt("bprice"))
+                        .build();
+                System.out.println(boardDto);
+                return boardDto;
             }
         }catch (Exception e){
             System.out.println("e = " + e);
         }
-        return false;
+        return null;
     }
 
+    //게시물 수정
+//    public boolean bUpdate(Map<String, String> map) {
+//        System.out.println("BoardDao.bUpdate");
+//        System.out.println("map = " + map);
+//        try {
+//            String sql = "update board set btitle = ? , baddress = ? , bdatetime = ? , bprice=?  where bno = ?";
+//            PreparedStatement ps = conn.prepareStatement(sql);
+//            ps.setString(1 , map.get("btitle"));
+//            ps.setString(2 , map.get("bcontent"));
+//            ps.setString(3 , map.get("bdatetime"));
+//            ps.setInt(4,Integer.parseInt(map.get("bprice")));
+//            //bno 값 넣을 예정
+//            int count = ps.executeUpdate();
+//            if(count==1){
+//                return true;
+//            }
+//        }catch (Exception e){
+//            System.out.println("e = " + e);
+//        }
+//        return false;
+//    }
+    // 게시물 수정===========================================================
 
 
     // 게시물 삭제
