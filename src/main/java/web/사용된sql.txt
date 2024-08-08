@@ -42,8 +42,9 @@ insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) valu
 
 select * from member where mno = 1;
 
-insert into board (btitle, baddress, bdatetime, bprice) values ('화성봉담 케이 풋살 파크 협성대점 c구장 6vs6', '경기 화성시' , '2024-08-06 화요일 19:00' , 11000) ;
-insert into board (btitle, baddress, bdatetime, bprice) values ('플랩 스타디움 가산 디지털엠파이어 2구장 6vs6', '서울 특별시' , '2024-08-09 금요일 21:00' , 8000) ;
-insert into board (btitle, baddress, bdatetime, bprice) values ('부천 굿웨이 풋살장 c구장 6vs6', '경기 부천시' , '2024-08-05 월요일 17:00' , 9000) ;
+insert into board (btitle, baddress, bdatetime, bprice, bfile1, bfile2) values ('화성봉담 케이 풋살 파크 협성대점 c구장 6vs6', '경기 화성시' , '2024-08-06 화요일 19:00' , 11000, 'hs1.jpeg', 'hs2.jpeg') ;
+insert into board (btitle, baddress, bdatetime, bprice, bfile1, bfile2) values ('플랩 스타디움 가산 디지털엠파이어 2구장 6vs6', '서울 특별시' , '2024-08-09 금요일 21:00' , 8000, 'gs1.jpg', 'gs2.jpg') ;
+insert into board (btitle, baddress, bdatetime, bprice, bfile1, bfile2) values ('부천 굿웨이 풋살장 c구장 6vs6', '경기 부천시' , '2024-08-05 월요일 17:00' , 9000, 'BGW1.jpg', 'BGW2.jpg') ;
+
 
 
