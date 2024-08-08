@@ -14,11 +14,8 @@ import java.util.Map;
 
 @Service
 public class BoardService {
-    @Autowired
-    BoardDao boardDao;
-
-    @Autowired
-    MemberService memberService;
+    @Autowired BoardDao boardDao;
+    @Autowired MemberService memberService;
 
     // 구장 목록 출력
     public List<BoardDto> bPrint() {

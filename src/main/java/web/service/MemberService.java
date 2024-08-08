@@ -87,7 +87,7 @@ public class MemberService {
         MemberDto loginDto = loginCheck();
         // 2. 로그인이 안 된 상태이면 false
         if (loginDto == null) return false;
-        // 4. 로그인 정보에서 회원번호만 추출
+        // 3. 로그인 정보에서 회원번호만 추출
         int loginMno = loginDto.getMno();
 
         // 4. 로그인된 회원번호를 map 엔트리에 추가

@@ -11,8 +11,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/board")
 public class BoardController {
-    @Autowired
-    BoardService boardService;
+    @Autowired BoardService boardService;
 
     // 구장 목록 출력
     @GetMapping("/list")
