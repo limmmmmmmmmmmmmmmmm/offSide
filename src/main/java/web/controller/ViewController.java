@@ -55,4 +55,8 @@ public class ViewController {
     @GetMapping("/admin/board")
     public String BoardMain(){ return "/board/board.html"; }
 
+    // ==================== [3] 관리자 관련 ==================== //
+    @GetMapping("/admin/mview")
+    public String mPrint(){return "/admin/mprint.html";}
+
 }

@@ -19,7 +19,7 @@ function Mmyinfo(){
             //                location.href="/member/login";
             //
             //            }
-            html += `<div class="_mtitle">${result.mname}님의 아이디</div> <div> ${result.mid} </div> <br/>
+            html += `<div >${result.mname}님의 아이디</div> <div> ${result.mid} </div> <br/>
                     <div class="_mtitle">이름</div> <div> ${result.mname} </div> <br/>
                     <div class="_mtitle">휴대폰 번호 </div> <div> ${result.mphone} </div> <br/>
                     <div class="_mtitle">성별 </div> <div> ${result.mgender} </div> <br/>

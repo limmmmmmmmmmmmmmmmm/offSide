@@ -59,9 +59,6 @@ public class BoardDao extends Dao{
 
 
 
-
-
-
     // 게시물 수정
     public boolean bUpdate(Map<String, String> map) {
         System.out.println("BoardDao.bUpdate");
