@@ -55,8 +55,8 @@ public class ViewController {
     @GetMapping("/board/braed")
     public String bRead(){return "/board/update.html";}
 
-    //[4] 게시판 삭제 페이delet지 요청
-    @GetMapping("/board/e")
+    //[4] 게시판 삭제 페이지 요청
+    @GetMapping("/board/delete")
     public String bDelete(){
         return "/board/delete.html";
     }
