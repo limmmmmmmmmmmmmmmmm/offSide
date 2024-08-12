@@ -32,18 +32,19 @@ public class BoardController {
 
     // =============================게시판 수정
     //수정할 게시판 출력
-    @GetMapping("/bread")
+    @GetMapping("/bbread")
     public BoardDto bRead(int bno){ // 수정할 게시물정보 가져올려면 bno
+        System.out.println("bno1 = " + bno);
         return boardService.bRead(bno);
     }
 
     // 게시판 수정
-//    @PutMapping("/update")
-//    public boolean bUpdate(@RequestBody Map <String, String> map){
-//        System.out.println("BoardController.bUpdate");
-//        System.out.println("map = " + map);
-//        return boardService.bUpdate(map); // boardService 전달
-//    }   // bUpdate() end
+    @PutMapping("/update")
+    public boolean bUpdate(@RequestBody Map <String, String> map){
+        System.out.println("컨트롤 수정");
+        System.out.println("map = " + map);
+        return boardService.bUpdate(map); // boardService 전달
+    }   // bUpdate() end
     // =============================게시판 수정
 
 

@@ -54,14 +54,15 @@ public class BoardService {
 
 
     //===================================== 6. 글 수정
-//    public boolean bUpdate(Map<String, String> map){
-//        System.out.println("BoardService.bUpdate");
-//        System.out.println("map = " + map);
-//        return boardDao.bUpdate(map); // 로그인 번호는 필요없으니 바로 Dao 전달
-//    }   // bUpdate() end
+    public boolean bUpdate(Map<String, String> map){
+        System.out.println("서비스 수정");
+        System.out.println("map = " + map);
+        return boardDao.bUpdate(map); // 로그인 번호는 필요없으니 바로 Dao 전달
+    }   // bUpdate() end
 
     // 수정할 게시물 출력
     public BoardDto bRead(int bno){
+        System.out.println("bno2 = " + bno);
         return boardDao.bRead(bno);
     }
     //===================================== 6. 글 수정
