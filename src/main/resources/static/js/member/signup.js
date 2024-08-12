@@ -4,7 +4,12 @@ let checkArray = [false, false, false, false, false, false];
 //    아이디, 비밀번호 ,이름 , 전화번호 , 계좌번호
 function doSignup() {
 
-
+    for( let i = 0; i < checkArray.length; i++){
+        if ( !checkArray[i]){
+            alert('유효하지 않는 정보가 있습니다.')
+            return;
+        }
+    }
 
     console.log('doSignup()');
     // 1. 입력값 가져오기
