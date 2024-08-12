@@ -7,8 +7,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f9fa; /* 부드러운 배경색 */
+    background-color: #f8f9fa;
     font-family: Arial, sans-serif;
+    flex-direction: column;
 }
 
 #mainSignup {
