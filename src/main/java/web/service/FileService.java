@@ -17,7 +17,7 @@ import java.util.UUID;
 public class FileService {
 
     //[0]
-    String uploadPath="C:\\Users\\tj-bu-703-15\\Desktop\\offSide\\src\\main\\resources\\static\\upload";
+    String uploadPath="C:\\Users\\tj-bu-703-15\\Desktop\\offSide\\src\\main\\resources\\static\\upload\\";
     //[1] 파일 업로드 : 매개변수로 파일의 바이트가 저장된 MultipartFile 인터페이스
     public String fileUpload(MultipartFile multipartFile){
 
