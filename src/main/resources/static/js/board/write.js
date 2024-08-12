@@ -17,7 +17,7 @@ console.log('write.js');
          contentType: false , processData : false,
          success:  r => {console.log(r);
                          alert('구장등록성공!')
-                        location.href="/board/";
+                        location.href="/admin/board";
                      },
                         error: e => {console.log(e);
                          alert('구장 등록 실패')
