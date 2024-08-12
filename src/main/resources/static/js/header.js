@@ -16,8 +16,9 @@ function loginCheck() {    console.log('loginCheck()');
                 console.log('비로그인');
                 html += `
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
-                        <li> <a href="/member/signup"> 회원가입</a> </li>
-                        <li> <a href="/member/login"> 로그인 </a></li>
+                        <li> <a href="/member/login"> <img class="Logo" src="/picture/로그인이미지로그.png" /> </a> </li>
+
+
                         `
             } else if (result.mno == 1) {   // 관리자의 mno는 1
                 // 관리자로 로그인한 경우
