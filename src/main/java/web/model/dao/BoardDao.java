@@ -72,7 +72,7 @@ public class BoardDao extends Dao{
     //수정할 게시물 출력
     public BoardDto bRead(int bno){
         try {
-            String sql = "select* from board where bno = 2;";
+            String sql = "select* from board where bno = ?;";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, bno);
             ResultSet rs = ps.executeQuery();
