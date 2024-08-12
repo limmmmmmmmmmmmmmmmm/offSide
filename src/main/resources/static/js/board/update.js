@@ -11,7 +11,7 @@ function readUpdate(){console.log('readUpdate()');
         $.ajax({
             async : false ,
             method:'get',
-            url:"/board/bbread",
+            url:"/board/bread",
             data:{bno:bno},
              // bno 넘겨주기
             success:(r) =>{
