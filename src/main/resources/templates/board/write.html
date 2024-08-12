@@ -5,6 +5,28 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="~{ /admin/header.html :: Admin_header }"></div>
+<h3> 구장 등록 페이지 </h3>
+<form class="boardWrite">
+
+    <!--    <select name="bcno" id="category">-->
+    <!--        <option value="1">경기</option>-->
+    <!--        <option value="2">서울</option>-->
+    <!--    </select>-->
+
+    <div>구장 첨부파일1: <input type="file"name="uploadFile"/><br /></div>
+    <div>구장 첨부파일2: <input type="file"name="uploadFile"/><br /></div>
+    <div> 구장 제목: <input id="title" type="text"name="btitle"  /> <br /></div>
+    <div> 구장 주소: <input id="address" type="text"name="baddress"  /> <br /></div>
+    <div>구장 시간:<input id="time" type="text"name="bdatetime"  /><br /></div>
+    <div>구장 가격:<input id="price" type="text"name="bprice"  /><br /></div>
+    <button onclick="_boardWrite()" type="button"> 구장 등록하기 </button>
+</form>
+
+<script src="/js/board/write.js"></script>
+<!--<script src="/js/board/category.js"></script>-->
+
+
 
 </body>
 </html>
