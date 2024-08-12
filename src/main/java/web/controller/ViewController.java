@@ -52,7 +52,7 @@ public class ViewController {
     public String BoardMain(){ return "/board/board.html"; }
 
     //[3] 게시판 상세 출력 페이지 요청
-    @GetMapping("/board/update")
+    @GetMapping("/board/braed")
     public String bRead(){return "/board/update.html";}
 
     //[4] 게시판 삭제 페이지 요청
