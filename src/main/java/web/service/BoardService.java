@@ -39,13 +39,20 @@ public class BoardService {
 //        boardDto.setMno(loginNo);
 
         // - 파일 업로드 처리
-        if( boardDto.getUploadFile().isEmpty() ){}// - 업로드 된 파일이 존재  하지 않으면
+        if( boardDto.getUploadFile1().isEmpty()){}// - 업로드 된 파일이 존재  하지 않으면
         else{ // 존재하면
-            String uploadFileName= fileService.fileUpload(boardDto.getUploadFile());
+            String uploadFileName= fileService.fileUpload(boardDto.getUploadFile1());
             // 1. 만약에 업로드가 실패 했으면  글쓰기 실패
             if( uploadFileName == null ) return false;
             // 2. BoardDto 에 업로드 된 파일명 담아주기
             boardDto.setBfile1( uploadFileName );
+        }
+        if (boardDto.getUploadFile2().isEmpty()){}
+        else{ // 존재하면
+            String uploadFileName= fileService.fileUpload(boardDto.getUploadFile2());
+            // 1. 만약에 업로드가 실패 했으면  글쓰기 실패
+            if( uploadFileName == null ) return false;
+            // 2. BoardDto 에 업로드 된 파일명 담아주기
             boardDto.setBfile2( uploadFileName );
         }
 

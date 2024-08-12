@@ -18,7 +18,10 @@ public class BoardDto {
     private int bprice;         // 가격
     private String bfile1;      // 파일1
     private String bfile2 ;     // 파일2
-    //업로드시 바이트를 저장하고 있는 필드
-    private MultipartFile uploadFile;// 첨부파일
+    //업로드시 바이트를 저장하고 있는 필드1
+    private MultipartFile uploadFile1;// 첨부파일
+
+    //업로드시 바이트를 저장하고 있는 필드2
+    private MultipartFile uploadFile2;// 첨부파일
 
 }
