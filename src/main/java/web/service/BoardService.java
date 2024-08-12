@@ -60,9 +60,9 @@ public class BoardService {
     }
 
 
-    //===================================== 6. 글 수정 ==========================
+    //===================================== 6. 글 수정
     public boolean bUpdate(Map<String, String> map){
-        System.out.println("BoardService.bUpdate");
+        System.out.println("서비스 수정");
         System.out.println("map = " + map);
         return boardDao.bUpdate(map); // 로그인 번호는 필요없으니 바로 Dao 전달
     }   // bUpdate() end

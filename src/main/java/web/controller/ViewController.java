@@ -52,13 +52,15 @@ public class ViewController {
     public String BoardMain(){ return "/board/board.html"; }
 
     //[3] 게시판 상세 출력 페이지 요청
-    @GetMapping("/board/braed")
+    @GetMapping("/board/update")
     public String bRead(){return "/board/update.html";}
 
-    // 게시판 수정하기
-//    @GetMapping("/board/update")
-//    public String bUpdate(){return "/board/update.html"; }
-//    //================== 6. 게시판(구장) 수정 페이지 요청
+    //[4] 게시판 삭제 페이지 요청
+    @GetMapping("/board/delete")
+    public String bDelete(){
+        return "/board/delete.html";
+    }
+
 
     // ==================== [4] 관리자 관련 ==================== //
     @GetMapping("/admin/mview")
