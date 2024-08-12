@@ -29,7 +29,7 @@ function readUpdate(){console.log('readUpdate()');
                                                        <button type="button">삭제</button>`;
 
         
-                                                    }   // boardRead() end}
+}   // boardRead() end}
 
 
 //게시물 수정 함수
