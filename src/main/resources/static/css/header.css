@@ -1,10 +1,40 @@
+/* =============== 공통 CSS =============== */
 *{
-    border: 2px solid red;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
     box-sizing: border-box;
-    padding: 10px;
-    list-style-type: none
-    
- }
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* ============= 레이아웃 CSS ============= */
+#header{
+    width: 500px;
+    margin: 0 auto;
+}
+
+#wrap{
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+
+/* ============= 작업용 CSS ============= */
+*{
+    border: 1px solid red;
+}
+
+
+/*
  #wrap{
     width: 500px;
     height: 50px;
@@ -12,21 +42,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* 자식 요소들이 수직으로 정렬되게 함 */
+    flex-direction: column; /* 자식 요소들이 수직으로 정렬되게 함
   }
+*/
 
-
+/* 로그인 메뉴 */
 #loginMenu{
     display: flex;
     justify-content:space-between;
     align-items: center;
 }
+
+/* 로고 크기 */
 .Logo{
    width: 100px;
-
 }
+
 /* #info{
     display: flex;
 } */
+
+
+
+
 
 
