@@ -32,9 +32,8 @@ public class BoardController {
 
     // =============================게시판 수정
     //수정할 게시판 출력
-    @GetMapping("/bbread")
+    @GetMapping("/bread")
     public BoardDto bRead(int bno){ // 수정할 게시물정보 가져올려면 bno
-        System.out.println("bno1 = " + bno);
         return boardService.bRead(bno);
     }
 
