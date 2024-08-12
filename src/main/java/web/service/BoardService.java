@@ -17,6 +17,7 @@ public class BoardService {
 
     @Autowired MemberService memberService;
     @Autowired BoardDao boardDao;
+    @Autowired FileService fileService;
 
     // 구장 목록 출력
     public List<BoardDto> bPrint() {
@@ -26,6 +27,28 @@ public class BoardService {
 
     //게시물 등록
     public boolean bwrite(BoardDto boardDto){
+//        //회원의 로그인회원번호 구하기
+//        //1. 로그인 세션에서 값 호출
+//        Object object=memberService.loginCheck();
+//        if (object ==null)return false; //비로그인시 함수 강제종료/취소
+//        //2. 세션 내 회원번호 속성 호출
+//        MemberDto memberDto=(MemberDto)object;
+//        //3. 속성 호출
+//        int loginNo=memberDto.getMno();
+//        //4. BoardDto 에 담아주기
+//        boardDto.setMno(loginNo);
+
+        // - 파일 업로드 처리
+        if( boardDto.getUploadFile().isEmpty() ){}// - 업로드 된 파일이 존재  하지 않으면
+        else{ // 존재하면
+            String uploadFileName= fileService.fileUpload(boardDto.getUploadFile());
+            // 1. 만약에 업로드가 실패 했으면  글쓰기 실패
+            if( uploadFileName == null ) return false;
+            // 2. BoardDto 에 업로드 된 파일명 담아주기
+            boardDto.setBfile1( uploadFileName );
+            boardDto.setBfile2( uploadFileName );
+        }
+
         return  boardDao.bwrite(boardDto);
     }
 

@@ -14,56 +14,59 @@ public class ViewController {
     }
 
     // ===================== [2] 회원관련 ===================== //
-    // [1] 회원가입
+    //[1] 회원가입 페이지 요청
     @GetMapping("/member/signup")
     public String OffSidSignup(){ return "/member/signup.html"; }
-
+    //[2] 내정보 페이지 요청
     @GetMapping("/member/my/info")
     public String mMyPage(){
         return "/member/myinfo.html";
     }
 
-    //로그인 매핑
+    //[3] 로그인 페이지 요청
     @GetMapping("/member/login")
     public String mLogin(){
         return "/member/login.html";
     }
 
-    // 4. 회원 수정 페이지 요청
+    //[4] 회원 수정 페이지 요청
     @GetMapping("/member/update")
     public String mUpdate() {
         return "/member/update.html";
     }
 
-    // 5. 회원 탈퇴 페이지 요청
+    //[5] 회원 탈퇴 페이지 요청
     @GetMapping("/member/delete")
     public String mDelete() {
         return "/member/delete.html";
     }
 
-    // 게시판 삭제
+    // ==================== [3] 구장관련 ==================== //
+
+    //[1] 게시판 등록 페이지 요청
+    @GetMapping("/board/write")
+    public String boardWrite(){return  "/board/write.html";}
+
+    //[2] 게시판 전체 출력 페이지 요청
+    @GetMapping("/admin/board")
+    public String BoardMain(){ return "/board/board.html"; }
+
+    //[3] 게시판 상세 출력 페이지 요청
+    @GetMapping("/board/braed")
+    public String bRead(){return "/board/update.html";}
+
+    //[4] 게시판 삭제 페이지 요청
     @GetMapping("/board/delete")
     public String bDelete(){
         return "/board/delete.html";
     }
-
-    // ==================== [3] 구장관련 ==================== //
-    @GetMapping("/admin/board")
-    public String BoardMain(){ return "/board/board.html"; }
-
-
-    //================== 6. 게시판(구장) 수정 페이지 요청
-    // 수정할 게시판 출력하기
-    @GetMapping("/board/braed")
-    public String bRead(){return "/board/update.html";}
 
     // 게시판 수정하기
 //    @GetMapping("/board/update")
 //    public String bUpdate(){return "/board/update.html"; }
 //    //================== 6. 게시판(구장) 수정 페이지 요청
 
-    // ==================== [3] 관리자 관련 ==================== //
+    // ==================== [4] 관리자 관련 ==================== //
     @GetMapping("/admin/mview")
     public String mPrint(){return "/admin/mprint.html";}
-
 }
