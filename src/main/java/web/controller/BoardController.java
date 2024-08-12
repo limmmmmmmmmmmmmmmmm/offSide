@@ -38,6 +38,7 @@ public class BoardController {
     }
 
     // 게시판 수정
+        // 각자
     @PutMapping("/update")
     public boolean bUpdate(@RequestBody Map <String, String> map){
         System.out.println("컨트롤 수정");

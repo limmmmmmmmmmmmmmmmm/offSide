@@ -70,7 +70,7 @@ public class BoardDao extends Dao{
     // 게시물 수정===========================================================
 
     //수정할 게시물 출력
-    public BoardDto bRead(int bno){
+    public BoardDto bRead(int bno){ //가져온 bno별로 각자 게시물 출력해주기
         try {
             System.out.println("bno3 = " + bno);
             String sql = "select* from board where bno = ?;";
@@ -87,9 +87,7 @@ public class BoardDao extends Dao{
                 System.out.println(boardDto);
                 return boardDto;
             }
-
         }catch (Exception e){   System.out.println(e);      }
-
         return null;
     }
 
