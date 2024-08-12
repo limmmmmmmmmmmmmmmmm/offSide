@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* 부드러운 배경색 */
     font-family: Arial, sans-serif;
     align-content: center;
     flex-direction: column;
