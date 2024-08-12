@@ -20,7 +20,7 @@ function readUpdate(){console.log('readUpdate()');
                board = r;
             }
         })  // ajax end
-        // 1. 어디에
+        // 1. bno별 각자 게시물 출력 / innerHTMl이 아닌 value로 출력 값을 가져와야 하니까
         document.querySelector(".btitle").value = `${board.btitle}`;
         document.querySelector(".baddress").value = `${board.baddress}`;
         document.querySelector(".bdatetime").value = `${board.bdatetime}`;
@@ -35,12 +35,13 @@ function readUpdate(){console.log('readUpdate()');
 //게시물 수정 함수
 
 function bUpdate(){ console.log('bUpdate()');
+    // 수정해야 할 데이터들 값 입력 가져오기
     let btitle = document.querySelector(".btitle").value;
     let baddress = document.querySelector(".baddress").value;
     let bdatetime = document.querySelector(".bdatetime").value;
     let bprice = document.querySelector(".bprice").value;
 
-    let info = {
+    let info = { //info 에 bno까지 같이 넣어주고
         btitle : btitle , 
         baddress : baddress , 
         bdatetime : bdatetime , 
