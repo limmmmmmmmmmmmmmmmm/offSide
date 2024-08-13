@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class PointDto {
+public class PointlogDto {
 
     private int rno;
     private int rstate;  // 예약확인상태

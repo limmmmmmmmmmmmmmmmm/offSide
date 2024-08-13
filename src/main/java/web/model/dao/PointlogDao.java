@@ -3,5 +3,5 @@ package web.model.dao;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PointDao extends Dao {
+public class PointlogDao extends Dao {
 }
