@@ -34,7 +34,7 @@ select *from board;
 
 
 
-insert into member( mno, mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 0, 'admin'  , 'admin'  ,  '관리자1'  , '000-0000-0000' ,'여자', '2000-01-01' , '000-000-00-0000') ;     # 관리자 계정
+insert into member( mno, mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 1, 'admin'  , 'admin'  ,  '관리자1'  , '000-0000-0000' ,'여자', '2000-01-01' , '000-000-00-0000') ;     # 관리자 계정
 insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe121'  , '1234'  ,  '원세빈'  , '000-0000-0001' ,'여자', '2003-01-29' , '000-000-00-0004') ;
 insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe122'  , '5678'  ,  '김희진'  , '000-1234-4532' ,'여자', '1994-01-01' , '000-324-32-3525') ;
 insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values ( 'qwe123'  , '4353'  ,  '서진표'  , '000-1334-4533' ,'남자', '2000-01-03', '000-334-33-3434') ;
