@@ -17,7 +17,7 @@ public class MemberDao extends Dao{
         System.out.println("memberDto = " + memberDto);
         try {
             String sql = "insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values (?,?,?,?,?,?,?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
+            PreparedStatement ps = conn.prepareStatement(sql );
             ps.setString( 1 , memberDto.getMid());
             ps.setString( 2 , memberDto.getMpw());
             ps.setString( 3 , memberDto.getMname());
