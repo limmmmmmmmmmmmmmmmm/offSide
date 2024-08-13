@@ -62,7 +62,11 @@ a{
     display: flex;
 } */
 
-
+/* 관리자페이지 헤더 */
+#adminHeader{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 
