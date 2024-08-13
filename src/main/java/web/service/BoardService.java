@@ -69,6 +69,7 @@ public class BoardService {
 
     // 수정할 게시물 출력
     public BoardDto bRead(int bno){
+        System.out.println("bno2 = " + bno);
         return boardDao.bRead(bno);
     }
     //===================================== 6. 글 수정
