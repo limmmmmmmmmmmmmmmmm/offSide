@@ -56,7 +56,7 @@ create table pointLog(
 	pno int auto_increment,
 	pindecrease int  not null,
     preason varchar(30)  not null,
-    pstate tinyint default 0,
+    pstate int default 0,
     mno int unsigned,
     accountlog varchar(30)  ,
     papprovedate varchar(30) not null,
@@ -76,7 +76,7 @@ insert into pointLog(pindecrease,preason,pstate,mno, accountlog, papprovedate) v
 drop tables if exists reservation;
 create table reservation(
 	rno int auto_increment,
-    rstate tinyint default 0,
+    rstate int default 0,
 	mno int unsigned ,
     bno int unsigned ,
     rdate datetime  default now() not null,
