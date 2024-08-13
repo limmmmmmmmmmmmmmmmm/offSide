@@ -12,8 +12,8 @@ import lombok.*;
 public class PointDto {
 
     private int rno;
-    private String rstate;
-    private int mno;
-    private int bno;
-    private String rdate;
+    private int rstate;  // 예약확인상태
+    private int mno;        // member no
+    private int bno;        // board no
+    private String rdate;   // 날짜
 }
