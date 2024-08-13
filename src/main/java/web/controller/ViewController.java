@@ -52,12 +52,15 @@ public class ViewController {
     public String BoardMain(){ return "/board/board.html"; }
 
     //[3] 게시판 상세 출력 페이지 요청
-    @GetMapping("/board/braed")
+    @GetMapping("/board/update")
     public String bRead(){return "/board/update.html";}
-
 
 
     // ==================== [4] 관리자 관련 ==================== //
     @GetMapping("/admin/mview")
     public String mPrint(){return "/admin/mprint.html";}
+
+    @GetMapping("/admin/payment")
+    public String apayment(){return "/admin/payment.html";}
+
 }
