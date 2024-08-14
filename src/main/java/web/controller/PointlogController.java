@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.model.dto.PointlogDto;
+import web.model.dto.PointlogDto;
 import org.springframework.web.bind.annotation.*;
 import web.model.dto.PointlogDto;
 import web.service.PointlogService;

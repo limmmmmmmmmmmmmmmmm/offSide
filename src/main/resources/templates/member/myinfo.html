@@ -11,6 +11,10 @@
     #Topmain{
         font-weight: bold;
     }
+    #pointHistory{
+    color: blue;
+    }
+
 </style>
 <body>
 
@@ -23,6 +27,10 @@
 
 <button type="button" onclick="location.href='/member/update'">회원정보수정</button>
 <button type="button" onclick="location.href='/member/delete'">회원탈퇴</button>
+<br/><br/>
+
+<hr />
+<a id="pointHistory" href="/point/history">포인트 사용내역 보기 </a>
 
 <script src="/js/member/myinfo.js"></script>
 <div th:replace="~{ /footer.html :: footer }"></div>

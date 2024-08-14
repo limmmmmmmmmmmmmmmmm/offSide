@@ -72,4 +72,8 @@ public class ViewController {
 
 
 
+    //==================== [5] 결제 관련 ==================== //
+    @GetMapping("/point/history")
+    public String myPagepint(){return "/point/mypohistory.html";}
+
 }
