@@ -60,7 +60,9 @@ public class ViewController {
     @GetMapping("/admin/mview")
     public String mPrint(){return "/admin/mprint.html";}
 
-    @GetMapping("/admin/payment")
-    public String apayment(){return "/admin/payment.html";}
+    @GetMapping("/admin/paylist")
+    public String apaylist(){return "/admin/paylist.html";}
+
+
 
 }
