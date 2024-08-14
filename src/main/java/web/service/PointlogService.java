@@ -28,6 +28,18 @@ public class PointlogService {
     public boolean payAgree(){
         return PointlogDao.payAgree()
     }
+    // 포인트 충전
+    public boolean pointCharge(PointlogDto pointlogDto) {
+        pointlogDto.setPreason("포인트충전");
+        System.out.println("PointlogService.pointCharge");
+        System.out.println("pointlogDto = " + pointlogDto);
+
+
+        return false;
+    }
+
+
+
 
 
 }
