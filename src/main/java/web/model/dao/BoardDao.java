@@ -41,7 +41,7 @@ public class BoardDao extends Dao{
         System.out.println("BoardDao.bPrint");
         ArrayList<BoardDto> list = new ArrayList<>();
         try {
-            String sql = "select * from board;";
+            String sql = "select * from board order by bno desc;";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

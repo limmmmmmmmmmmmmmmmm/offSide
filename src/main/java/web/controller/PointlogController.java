@@ -1,9 +1,8 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import web.model.dto.PointlogDto;
 import web.service.PointlogService;
 
 @RestController
@@ -17,6 +16,16 @@ public class PointlogController {
     public void pointPay(){
 
     }
+
+    // 포인트 충전
+    @PostMapping("/charge")
+    public boolean pointCharge(@RequestBody PointlogDto pointlogDto) {
+        System.out.println("PointlogController.pointCharge");
+        System.out.println("pointlogDto = " + pointlogDto);
+
+        return pointlogService.pointCharge(pointlogDto);
+    }
+
 
 
 

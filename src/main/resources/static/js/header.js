@@ -3,12 +3,16 @@ console.log('header.js');
 // 로그인 상태 확인
 loginCheck();
 function loginCheck() {    console.log('loginCheck()');
+    let mno;
+
     $.ajax({
         async : false,
         method : 'get',
         url : '/member/login/check',
         success : (result) => {     console.log(result);
             let html = ``;
+
+            mno = result.mno;
 
             // 로그인 상태에 따른 메뉴 구성
             if (result == '') {
@@ -45,6 +49,8 @@ function loginCheck() {    console.log('loginCheck()');
         }   // success end
     });  // ajax end
 
+    console.log(mno);
+    return mno;
 }   // loginCheck() end
 
 

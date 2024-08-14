@@ -63,4 +63,11 @@ public class ViewController {
     @GetMapping("/admin/payment")
     public String apayment(){return "/admin/payment.html";}
 
+
+    // ==================== [5] 포인트 관련 ==================== //
+    @GetMapping("/point/charge")
+    public String pcharge() { return "/point/charge.html"; }
+
+
+
 }
