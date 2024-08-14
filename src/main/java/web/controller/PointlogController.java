@@ -9,6 +9,7 @@ import web.model.dto.PointlogDto;
 import web.model.dto.PointlogDto;
 import org.springframework.web.bind.annotation.*;
 import web.model.dto.PointlogDto;
+import web.model.dto.PointlogDto;
 import web.service.PointlogService;
 
 import java.util.List;

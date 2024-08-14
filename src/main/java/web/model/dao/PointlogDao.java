@@ -17,6 +17,11 @@ import web.model.dto.PointlogDto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import web.model.dto.BoardDto;
+import web.model.dto.PointlogDto;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @Component
 public class PointlogDao extends Dao {
@@ -60,6 +65,7 @@ public class PointlogDao extends Dao {
         }
     return null;
     }
+
 
 
 
