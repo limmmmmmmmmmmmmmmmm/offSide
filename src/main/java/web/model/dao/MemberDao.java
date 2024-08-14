@@ -5,6 +5,7 @@ import web.model.dto.MemberDto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Map;
 
 @Component
@@ -12,12 +13,13 @@ public class MemberDao extends Dao{
 
 
     // [1] 회원가입
-    public boolean OffSidSignup(MemberDto memberDto){
+    public int OffSidSignup(MemberDto memberDto){
         System.out.println("MemberDao.OffSidSignup");
         System.out.println("memberDto = " + memberDto);
         try {
             String sql = "insert into member( mid , mpw , mname, mphone, mgender, mbirth, maccount  ) values (?,?,?,?,?,?,?)";
-            PreparedStatement ps = conn.prepareStatement(sql );
+            PreparedStatement ps = conn.prepareStatement(sql , Statement.RETURN_GENERATED_KEYS );
+                // Statement.RETURN_GENERATED_KEYS : insert 성공시 pk번호를 반환 하겠다는 뜻
             ps.setString( 1 , memberDto.getMid());
             ps.setString( 2 , memberDto.getMpw());
             ps.setString( 3 , memberDto.getMname());
@@ -27,10 +29,18 @@ public class MemberDao extends Dao{
             ps.setString( 7 , memberDto.getMaccount());
 
             int count = ps.executeUpdate();
-            if (count == 1 )return true;
+            if (count == 1 ){
+                ResultSet rs = ps.getGeneratedKeys();   // insert 성공한 레코드들 의 반환
+                rs.next();  // 성공한 레코드를 한번 이동
+                int pkMno = rs.getInt( 1 ); // 레코드에서 pk번호 추출
+                return pkMno; // 반환값이 pkMno , 타입/분류/ 값의 붆류( 기본타입 8가지 , 참조타입 )
+                // 왜? pk번호를 반환하는 이유? 성공한 회원의 pk번호 필요
+                // pk : auto_increment 설정으로 자동번호가 부여 , 1 ~ 이면 생성 , 생성이 안된다는 증거 0
+            }
         }catch (Exception e){System.out.println(e);
         }
-        return false;
+        return 0;
+
     } // OffSidSignup end
 
     //  아이디 중복 검사
