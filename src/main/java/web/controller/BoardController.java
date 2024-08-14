@@ -22,7 +22,6 @@ public class BoardController {
     }
 
 
-
     //게시물 등록
     @PostMapping("/write")
     public boolean bwrite(BoardDto boardDto){

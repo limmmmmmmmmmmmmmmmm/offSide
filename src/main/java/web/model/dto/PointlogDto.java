@@ -20,5 +20,9 @@ public class PointlogDto {
     private String papprovedate;
     private String pregistration;
 
+    // 신청한 내역들 출력할때 필요해서 memberDto에 mid 와 mname만
+    // PointlogDto에 추가 하겠습니다.
+    private String mid;
+    private String mname;
 
 }
