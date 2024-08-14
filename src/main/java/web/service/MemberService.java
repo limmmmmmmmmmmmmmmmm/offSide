@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.MemberDao;
 import web.model.dto.MemberDto;
+import web.model.dto.PointlogDto;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 
@@ -18,18 +20,31 @@ public class MemberService {
     @Autowired PointlogService pointlogService;
 
     // [1] 회원가입
-//    public boolean OffSidSignup(MemberDto memberDto){
-//        System.out.println("MemberService.OffSidSignup");
-//        System.out.println("memberDao = " + memberDao);
-//        boolean result =  memberDao.OffSidSignup(memberDto); // 만일 회원가입 성공시 회원번호[PK]반환 , 실패시 0
-//        if( result ){
-//            // 포인트 지급 서비스 호출
-//                // 1. 방금 위에서 회원가입한 회원번호[PK] 조회 ,
-//                // 2. 자바에서 오늘 날짜를 문자로 추출 LocalDate 클래스.
-//            pointlogService.pointAdd( "회원가입축하" , 10000 , 회원가입한회원번호 , 1 , 오늘날짜 , null  );
-//        }
-//        return result;
-//    }
+    public boolean OffSidSignup(MemberDto memberDto){
+        System.out.println("MemberService.OffSidSignup");
+        System.out.println("memberDao = " + memberDao);
+        int result =  memberDao.OffSidSignup(memberDto); // 만일 회원가입 성공시 회원번호[PK]반환 , 실패시 0
+        if( result >= 1  ){ // 1보다 크면 true 작으면 false
+            // 포인트 지급 서비스 호출
+                // 1. 방금 위에서 회원가입한 회원번호[PK] 조회 ,
+                // 2. 자바에서 오늘 날짜를 문자로 추출 LocalDate 클래스.
+            LocalDate localDate = LocalDate.now();
+
+            PointlogDto pointlogDto = new PointlogDto();
+            pointlogDto.setPindecrease(10000);
+            pointlogDto.setPreason("회원가입");
+            pointlogDto.setPstate(1);
+            pointlogDto.setMno( result );
+            pointlogDto.setAccountlog(null);
+            pointlogDto.setPapprovedate(localDate.toString());
+
+            pointlogService.pointPay( pointlogDto );
+
+            return true;
+        }else{
+            return false;
+        }
+    }
     //  아이디 중복검사
     public boolean mIdCheck( String mid ){
         return memberDao.mIdCheck( mid );

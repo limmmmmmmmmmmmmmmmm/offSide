@@ -1,12 +1,13 @@
 console.log('signup.js');
-let checkArray = [false, false, false, false, false, false];
+let checkArray = [false, false, false, false, false];
 
 //    아이디, 비밀번호 ,이름 , 전화번호 , 계좌번호
 function doSignup() {
 
-    for( let i = 0; i < checkArray.length; i++){
-        if ( !checkArray[i]){
-            alert('유효하지 않는 정보가 있습니다.')
+    for (let i = 0; i < checkArray.length; i++) {
+        if (!checkArray[i]) {
+            alert(i);
+            alert('유효하지 않는 정보가 있습니다.');
             return;
         }
     }
@@ -22,8 +23,8 @@ function doSignup() {
     let month = document.querySelector('#month').value;
     let day = document.querySelector('#day').value;
     let maccount = document.querySelector('#maccount').value;
-    let mbirth = year +"-"+ month +"-"+ day
-    console.log(mbirth)
+    let mbirth = year + "-" + month + "-" + day;
+    console.log(mbirth);
 
     // 2. 객체
     let info = {

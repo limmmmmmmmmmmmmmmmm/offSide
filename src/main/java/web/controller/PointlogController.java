@@ -16,11 +16,6 @@ public class PointlogController {
     @Autowired PointlogService pointlogService;
 
 
-    // 회원가입시 1만포인트 지급
-    @GetMapping("/pay")
-    public void pointPay(){
-
-    }
 
     // 충전하는 회원들 리스트 출력
     @GetMapping("/paylist")

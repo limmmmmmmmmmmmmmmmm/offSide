@@ -14,7 +14,8 @@ public class PointlogService {
 
 
     // 회원가입시 1만포인트 지급
-    public void pointPay(PointlogDto pointlogDto){
+    public boolean pointPay(PointlogDto pointlogDto){
+        return pointlogDao.pointPay(pointlogDto);
 
     }
 
