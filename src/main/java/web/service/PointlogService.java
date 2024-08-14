@@ -19,15 +19,27 @@ public class PointlogService {
 
     }
 
+    // 포인트 충전
+    public boolean pointCharge(PointlogDto pointlogDto) {
+        pointlogDto.setPreason("포인트충전");
+        System.out.println("PointlogService.pointCharge");
+        System.out.println("pointlogDto = " + pointlogDto);
+
+
+        return false;
+    }
+
+
+
     // 충전하는 회원들 리스트 출력
     public List<PointlogDto> apaylist(){
         System.out.println("포인트 서비스");
         return pointlogDao.apaylist();
     }
     // 버튼 누르면 true 바꿔주기
-    public boolean payAgree(){
-        return PointlogDao.payAgree()
-    }
+//    public boolean payAgree(){
+//        return PointlogDao.payAgree()
+//    }
 
 
 }
