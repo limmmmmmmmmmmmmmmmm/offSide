@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.MemberDao;
 import web.model.dto.MemberDto;
+import web.model.dto.PointlogDto;
 
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class MemberService {
             // 포인트 지급 서비스 호출
                 // 1. 방금 위에서 회원가입한 회원번호[PK] 조회 ,
                 // 2. 자바에서 오늘 날짜를 문자로 추출 LocalDate 클래스.
-            pointlogService.pointAdd( "회원가입축하" , 10000 , 회원가입한회원번호 , 1 , 오늘날짜 , null  );
+//            pointlogService.pointAdd( "회원가입축하" , 10000 , 회원가입한회원번호 , 1 , 오늘날짜 , null  );
         }
         return result;
     }
@@ -127,5 +128,20 @@ public class MemberService {
         return result;
 
     }   // mDelete() end
+
+    //회원 포인트 내역 출력
+//    public PointlogDto mypointPrint(int mno){
+//        PointlogDto pointlogDto=new PointlogDto();
+//        //1. 로그인 세션에서 값 호출
+//        Object object=memberService.loginCheck();
+//        if (object ==null)return null; //비로그인시 함수 강제종료/취소
+//        //2. 세션 내 회원번호 속성 호출
+//        MemberDto memberDto=(MemberDto)object;
+//        //3. 속성 호출
+//        int loginNo=memberDto.getMno();
+//        return  pointlogDao.mypointPrint(loginNo);
+//
+//
+//    }
 
 }
