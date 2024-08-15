@@ -3,6 +3,7 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import web.model.dao.PointlogDao;
 import web.model.dto.MemberDto;
 import web.model.dto.PointlogDto;
@@ -20,14 +21,22 @@ public class PointlogService {
 
     }
 
-    // 포인트 충전
+    // 포인트 충전 신청
     public boolean pointCharge(PointlogDto pointlogDto) {
         pointlogDto.setPreason("포인트충전");
         System.out.println("PointlogService.pointCharge");
         System.out.println("pointlogDto = " + pointlogDto);
 
+        return pointlogDao.pointPay(pointlogDto);
+    }
 
-        return false;
+    // 포인트 환불 신청
+    public boolean pointRefund(@RequestBody PointlogDto pointlogDto) {
+        pointlogDto.setPreason("포인트환불");
+        System.out.println("PointlogService.pointRefund");
+        System.out.println("pointlogDto = " + pointlogDto);
+
+        return pointlogDao.pointPay(pointlogDto);
     }
 
 

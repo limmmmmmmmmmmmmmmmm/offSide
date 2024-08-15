@@ -68,13 +68,12 @@ public class ViewController {
 
     // ==================== [5] 포인트 관련 ==================== //
     @GetMapping("/point/charge")
-    public String pcharge() { return "/point/charge.html"; }
+    public String pCharge() { return "/point/charge.html"; }
+
+    @GetMapping("/point/refund")
+    public String pRefund() { return "/point/refund.html"; }
 
 
-
-    //==================== [5] 결제 관련 ==================== //
-    @GetMapping("/point/history")
-    public String myPagepint(){return "/point/mypohistory.html";}
 
     //==================== [5] 결제 관련 ==================== //
     @GetMapping("/point/history")

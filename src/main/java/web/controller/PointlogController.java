@@ -28,13 +28,22 @@ public class PointlogController {
        return pointlogService.apaylist();
     }
 
-    // 포인트 충전
+    // 포인트 충전 신청
     @PostMapping("/charge")
     public boolean pointCharge(@RequestBody PointlogDto pointlogDto) {
         System.out.println("PointlogController.pointCharge");
         System.out.println("pointlogDto = " + pointlogDto);
 
         return pointlogService.pointCharge(pointlogDto);
+    }
+
+    // 포인트 환불 신청
+    @PostMapping("/refund")
+    public boolean pointRefund(@RequestBody PointlogDto pointlogDto) {
+        System.out.println("PointlogController.pointRefund");
+        System.out.println("pointlogDto = " + pointlogDto);
+
+        return pointlogService.pointRefund(pointlogDto);
     }
 
 
