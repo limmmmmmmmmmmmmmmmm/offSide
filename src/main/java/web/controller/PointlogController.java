@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.model.dto.PointlogDto;
+import web.model.dto.PointlogDto;
 import org.springframework.web.bind.annotation.*;
+import web.model.dto.PointlogDto;
 import web.model.dto.PointlogDto;
 import web.service.PointlogService;
 
@@ -30,23 +32,7 @@ public class PointlogController {
        return pointlogService.apaylist();
     }
 
-    // 포인트 충전 신청
-//    @PostMapping("/charge")
-//    public boolean pointCharge(@RequestBody PointlogDto pointlogDto) {
-//        System.out.println("PointlogController.pointCharge");
-//        System.out.println("pointlogDto = " + pointlogDto);
-//
-//        return pointlogService.pointCharge(pointlogDto);
-//    }
 
-    // 포인트 환불 신청
-    @PostMapping("/refund")
-    public boolean pointRefund(@RequestBody PointlogDto pointlogDto) {
-        System.out.println("PointlogController.pointRefund");
-        System.out.println("pointlogDto = " + pointlogDto);
-
-        return pointlogService.pointRefund(pointlogDto);
-    }
 
 
     // 포인트 승인 (수정)

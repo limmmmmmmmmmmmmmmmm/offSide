@@ -25,7 +25,7 @@ function boardPrint() {     console.log('boardPrint()');
     boardDto.forEach ( b => {
         let mno = loginCheck();
         console.log(mno);
-        html += `<div id="warp">
+        html += `<div class="warp">
                     <div id="carouselExample${b.bno}" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
