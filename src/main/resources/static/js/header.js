@@ -20,7 +20,7 @@ function loginCheck() {    console.log('loginCheck()');
                 console.log('비로그인');
                 html += `
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
-                        <li> <a href="/member/login"> <img class="Logo" src="/picture/로그인이미지로그.png" /> </a> </li>
+                        <li> <a href="/member/login"> <img class="Logo" src="/picture/로그인이미지.png" /> </a> </li>
 
 
                         `
@@ -38,6 +38,8 @@ function loginCheck() {    console.log('loginCheck()');
                 console.log('일반 회원 로그인');
                 html += `
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
+                        <li>  ${result.mname}님 </li>
+                        <li>  포인트 ${result.pindecrease} </li>
                         <li> <a href="/member/my/info"> 내정보 </a> </li>
                         <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
                         `

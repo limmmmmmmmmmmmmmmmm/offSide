@@ -14,7 +14,7 @@
         justify-content: space-between;
         align-items: center;
     }
-    #pointColor{
+    .pointColor{
         font-weight:bolder ;
     }
     #button1{
@@ -28,7 +28,7 @@
     color: black;
     }
     #button2{
-        background-color: #1570ff;;
+    background-color: #1570ff;;
     border-radius: 12px;
     padding: 20px;
     border: none;
@@ -40,21 +40,28 @@
     #buttons{
         display: flex;
     }
+    .poinfo3{
+    color:blue;
+    }
+    .pointaddBox{
+    font-size: 25px
+    }
 
 </style>
 <body>
 <div id="wrap">
-<div th:replace="~{ /header.html :: header }"></div>
-<div id="myPointPage"> 회원의 포인트내역 페이지</div> <br/><br/>
-    <h3> 나의 포인트 </h2>
-        <div id="buttons">
-    <button id="button1" type="button">포인트 환불 </button> <button id="button2" type="button">포인트 충전 </button></div>
+    <div th:replace="~{ /header.html :: header }"></div>
 
-    <div>
-        <h3> 포인트 상세내역 </h2>
-        <ul id="pointPrintBox">
-   
-    </div>
+    <h3> 나의 포인트 </h2>
+        <div class="pointaddBox">11000 원</div>
+        <div id="buttons">
+            <button id="button1" type="button">포인트 환불 </button> <button id="button2" type="button">포인트 충전 </button></div><br/>
+        <br/>
+        <div>
+            <h3> 포인트 충전 신청내역 </h2>
+                <ul id="pointPrintBox">
+
+        </div>
 
 
 

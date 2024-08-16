@@ -5,10 +5,12 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import web.model.dao.MemberDao;
+import web.model.dao.PointlogDao;
 import web.model.dto.MemberDto;
 import web.model.dto.PointlogDto;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 
@@ -18,6 +20,7 @@ public class MemberService {
     @Autowired  MemberDao memberDao;
 
     @Autowired PointlogService pointlogService;
+    @Autowired PointlogDao pointlogDao;
 
     // [1] 회원가입
     public boolean OffSidSignup(MemberDto memberDto){
@@ -26,8 +29,8 @@ public class MemberService {
         int result =  memberDao.OffSidSignup(memberDto); // 만일 회원가입 성공시 회원번호[PK]반환 , 실패시 0
         if( result >= 1  ){ // 1보다 크면 true 작으면 false
             // 포인트 지급 서비스 호출
-                // 1. 방금 위에서 회원가입한 회원번호[PK] 조회 ,
-                // 2. 자바에서 오늘 날짜를 문자로 추출 LocalDate 클래스.
+            // 1. 방금 위에서 회원가입한 회원번호[PK] 조회 ,
+            // 2. 자바에서 오늘 날짜를 문자로 추출 LocalDate 클래스.
             LocalDate localDate = LocalDate.now();
 
             PointlogDto pointlogDto = new PointlogDto();
@@ -44,7 +47,7 @@ public class MemberService {
         }else{
             return false;
         }
-        return result;
+//        return result;
     }
     //  아이디 중복검사
     public boolean mIdCheck( String mid ){
@@ -76,6 +79,10 @@ public class MemberService {
             MemberDto loginDto = MemberDto.builder()
                     .mno( result )
                     .mid( memberDto.getMid() )
+                    //헤더에 회원이름과 포인트를 추가
+                    .mname(memberDto.getMname())
+                    .pindecrease(memberDto.getPindecrease())
+
                     .build();
             HttpSession session = request.getSession();
             session.setAttribute( "loginDto", loginDto );
@@ -86,9 +93,13 @@ public class MemberService {
 
     // 로그인의 상태 반환
     public MemberDto loginCheck( ){
+        System.out.println("memberDao = " + memberDao);
+        System.out.println("MemberService.loginCheck");
         HttpSession session = request.getSession(); // 1. 현재 요청을 보내온 클라이언트의 세션객체호출
         // 2. 세션객체내 속성 값 호출 , 타입변환 필요하다.
         Object object = session.getAttribute( "loginDto" );
+        System.out.println("object = " + object);
+        System.out.println("MemberService.loginCheck");
         if( object !=null ){   return (MemberDto)object;  }
         return null;
     }
@@ -144,19 +155,18 @@ public class MemberService {
 
     }   // mDelete() end
 
-    //회원 포인트 내역 출력
-//    public PointlogDto mypointPrint(int mno){
-//        PointlogDto pointlogDto=new PointlogDto();
-//        //1. 로그인 세션에서 값 호출
-//        Object object=memberService.loginCheck();
-//        if (object ==null)return null; //비로그인시 함수 강제종료/취소
-//        //2. 세션 내 회원번호 속성 호출
-//        MemberDto memberDto=(MemberDto)object;
-//        //3. 속성 호출
-//        int loginNo=memberDto.getMno();
-//        return  pointlogDao.mypointPrint(loginNo);
-//
-//
-//    }
+    //회원 포인트 충전 내역 출력
+    public List<PointlogDto> mypointPrint(){
+        System.out.println("MemberService.mypointPrint");
+        //로그인 세션처리
+        MemberDto loginDto = loginCheck(); // 로그인된 세션정보 요청
+        System.out.println("loginDto = " + loginDto);
+        if( loginDto == null )return null; // 비로그인이면 리턴
+        int loginMno = loginDto.getMno();
+        return  pointlogDao.mypointPrint(loginMno);
+
+
+    }
+
 
 }

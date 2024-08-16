@@ -6,6 +6,7 @@ import web.model.dto.MemberDto;
 import web.model.dto.PointlogDto;
 import web.service.MemberService;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -76,12 +77,14 @@ public class MemberController {
     }   // mDelete() end
 
 
-//    //회원 포인트 내역 출력
-//    @GetMapping("/history")
-//    public PointlogDto mypointPrint(){
-//        return  memberService.mypointPrint();
-//
-//    }
+    //회원 포인트 내역 출력
+    @GetMapping("/history")
+    public List<PointlogDto> mypointPrint(){
+        return  memberService.mypointPrint();
+
+    }
+
+
 
 
 
