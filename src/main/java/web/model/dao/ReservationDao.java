@@ -23,7 +23,7 @@ public class ReservationDao extends Dao {
 
         List<Map<String, String>> list = new ArrayList<>();
         try {
-            String sql = "select * from reservation r inner join board b on r.bno = b.bno where mno = ? order by bno desc;";
+            String sql = "select * from reservation r inner join board b on r.bno = b.bno where mno = ? order by rno desc;";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, loginMno);
             ResultSet rs = ps.executeQuery();
