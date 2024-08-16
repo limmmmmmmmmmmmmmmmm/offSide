@@ -134,21 +134,3 @@ function reservation(bno){
 
 } // reservation end
 
-// 회원 구장 예약 취소
-function cancellation(bno){
-
-$.ajax({
-            async : false,
-            method : 'put',
-            data : {bno : bno},
-            url : "/reservation/stadiumcancellation",
-            success : (r)=>{ console.log(r);
-                if(r){
-                    alert('취소 성공');
-                    boardPrint();
-                } else{
-                    alert('취소 실패');
-                }
-            }     // success end
-        });  // ajax end
-}   // cancellation end

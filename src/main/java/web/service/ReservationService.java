@@ -60,8 +60,15 @@ public class ReservationService {
         }
 
         // [1] 구장 예약
+
+        // [1-1] 최초 구장 예약
         boolean result = reservationDao.stadiumReservation( 1 , loginMto , bno );
         if( result == false ){ return false; } // 구장예약 실패
+        // [1-2] 취소 했다가 다시 구장 예약 , 상태 변경
+
+        // [1-3 ] 현재 구장 예약인원수 에 따른 제한
+
+        // [1-4 ] 구장 날짜가 지나면 예약불가.
 
         // 구장예약 성공
         // [2] 구장 예약 에 따른 포인트 로그 처리
@@ -98,8 +105,6 @@ public class ReservationService {
 
         // 현재시간 구하는 함수
         LocalDate localDate = LocalDate.now();
-
-
         // 구장예약취소 성공
         // [2] 구장 예약 에 따른 포인트 로그 처리
         PointlogDto pointlogDto = new PointlogDto();
