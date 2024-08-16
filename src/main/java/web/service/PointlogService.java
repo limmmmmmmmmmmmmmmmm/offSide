@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import web.model.dao.PointlogDao;
+import web.model.dto.MemberDto;
 import web.model.dto.PointlogDto;
 
 import java.util.List;
@@ -40,6 +41,14 @@ public class PointlogService {
 //    public boolean payAgree(){
 //        return PointlogDao.payAgree()
 //    }
+
+    //포인트 누적 출력
+    public PointlogDto pointAdd(){
+        return pointlogDao.pointAdd();
+    }
+
+
+
 
 
 

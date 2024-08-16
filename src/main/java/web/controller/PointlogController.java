@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.model.dto.PointlogDto;
+import web.model.dto.PointlogDto;
 import org.springframework.web.bind.annotation.*;
+import web.model.dto.PointlogDto;
 import web.model.dto.PointlogDto;
 import web.service.PointlogService;
 
@@ -42,6 +44,12 @@ public class PointlogController {
 //    public boolean payAgree(){
 //        return PointlogService.payAgree()
 //    }
+
+    //포인트 누적 출력
+    @GetMapping("/add")
+    public PointlogDto pointAdd(){
+        return pointlogService.pointAdd();
+    }
 
 
 }

@@ -3,8 +3,10 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import web.model.dto.MemberDto;
+import web.model.dto.PointlogDto;
 import web.service.MemberService;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -73,6 +75,16 @@ public class MemberController {
         System.out.println("mpw = " + mpw);
         return memberService.mDelete(mpw);
     }   // mDelete() end
+
+
+    //회원 포인트 내역 출력
+    @GetMapping("/history")
+    public List<PointlogDto> mypointPrint(){
+        return  memberService.mypointPrint();
+
+    }
+
+
 
 
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #wrap{
+    width: 500px;
+    margin: 0 auto;
+    }
+    .point{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .pointColor{
+        font-weight:bolder ;
+    }
+    #button1{
+        background-color: #f2f5f7;;
+    border-radius: 12px;
+    padding: 20px;
+    border: none;
+    /* cursor: pointer; */
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    }
+    #button2{
+    background-color: #1570ff;;
+    border-radius: 12px;
+    padding: 20px;
+    border: none;
+    /* cursor: pointer; */
+    width: 100%;
+    font-size: 16px;
+    color: white;
+    }
+    #buttons{
+        display: flex;
+    }
+    .poinfo3{
+    color:blue;
+    }
+    .pointaddBox{
+    font-size: 25px
+    }
+
+</style>
+<body>
+<div id="wrap">
+    <div th:replace="~{ /header.html :: header }"></div>
+
+    <h3> 나의 포인트 </h2>
+        <div class="pointaddBox">11000 원</div>
+        <div id="buttons">
+            <button id="button1" type="button">포인트 환불 </button> <button id="button2" type="button">포인트 충전 </button></div><br/>
+        <br/>
+        <div>
+            <h3> 포인트 충전 신청내역 </h2>
+                <ul id="pointPrintBox">
+
+        </div>
+
+
+
+
+
+</div>
+
+<script src="/js/point/mypohistory.js"></script>
+
+
+</body>
+</html>
