@@ -12,19 +12,11 @@
 
         <div>환불할 금액</div>
 
-        <div>
-            <button type="button" onclick="getPrice(5000)">5,000원</button>
-            <button type="button" onclick="getPrice(10000)">10,000원</button>
-            <button type="button" onclick="getPrice(15000)">15,000원</button> <br>
-
-            <button type="button" onclick="getPrice(20000)">20,000원</button>
-            <button type="button" onclick="getPrice(25000)">25,000원</button>
-            <button type="button" onclick="getPrice(30000)">30,000원</button> <br>
-
-            <button type="button" onclick="getPrice(40000)">40,000원</button>
-            <button type="button" onclick="getPrice(50000)">50,000원</button>
-            <button type="button" onclick="getPrice(100000)">100,000원</button>
-        </div> <br>
+        <div id="refundPriceWrap">
+            <select id="refundPrice">
+                <option value="">환불 금액</option>
+            </select>
+        </div>
 
         <div>
             계좌주명 <br>

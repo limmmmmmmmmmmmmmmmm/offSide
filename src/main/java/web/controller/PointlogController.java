@@ -19,35 +19,12 @@ import java.util.List;
 public class PointlogController {
     @Autowired PointlogService pointlogService;
 
-
-
     // 충전하는 회원들 리스트 출력
     @GetMapping("/paylist")
     public List<PointlogDto> apaylist(){
         System.out.println("포인트 컨트롤");
        return pointlogService.apaylist();
     }
-
-    // 포인트 충전 신청
-    @PostMapping("/charge")
-    public boolean pointCharge(@RequestBody PointlogDto pointlogDto) {
-        System.out.println("PointlogController.pointCharge");
-        System.out.println("pointlogDto = " + pointlogDto);
-
-        return pointlogService.pointCharge(pointlogDto);
-    }
-
-    // 포인트 환불 신청
-    @PostMapping("/refund")
-    public boolean pointRefund(@RequestBody PointlogDto pointlogDto) {
-        System.out.println("PointlogController.pointRefund");
-        System.out.println("pointlogDto = " + pointlogDto);
-
-        return pointlogService.pointRefund(pointlogDto);
-    }
-
-
-
 
 //    @PostMapping
 //    public boolean payAgree(){

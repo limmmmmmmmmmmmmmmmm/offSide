@@ -14,31 +14,11 @@ import java.util.List;
 public class PointlogService {
     @Autowired PointlogDao pointlogDao;
 
-
     // 회원가입시 1만포인트 지급
     public boolean pointPay(PointlogDto pointlogDto){
         return pointlogDao.pointPay(pointlogDto);
 
     }
-
-    // 포인트 충전 신청
-    public boolean pointCharge(PointlogDto pointlogDto) {
-        pointlogDto.setPreason("포인트충전");
-        System.out.println("PointlogService.pointCharge");
-        System.out.println("pointlogDto = " + pointlogDto);
-
-        return pointlogDao.pointPay(pointlogDto);
-    }
-
-    // 포인트 환불 신청
-    public boolean pointRefund(@RequestBody PointlogDto pointlogDto) {
-        pointlogDto.setPreason("포인트환불");
-        System.out.println("PointlogService.pointRefund");
-        System.out.println("pointlogDto = " + pointlogDto);
-
-        return pointlogDao.pointPay(pointlogDto);
-    }
-
 
 
     // 충전하는 회원들 리스트 출력

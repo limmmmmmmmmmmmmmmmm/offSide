@@ -15,14 +15,14 @@ function doLoginCheck() {
     }
 
     loginMno = mno;
-}
+}   // doLoginCheck() end
 
 // 충전할 금액 변수에 저장
 function getPrice(chargePrice) {   console.log('getPrice()');
     console.log(chargePrice);
 
     price = chargePrice;
-}
+}   // getPrice() end
 
 // 포인트 충전 함수
 function doPointCharge() {  console.log('doPointCharge()');
@@ -55,7 +55,7 @@ function doPointCharge() {  console.log('doPointCharge()');
                 alert('2시간 내로 선택하신 금액을 00은행 000-000-00-0000으로 입금해주시기 바랍니다. 정상 입금 확인 후 포인트 충전 신청 승인을 해드리겠습니다.')
                 location.href = "/"
             }
-        }
-    })
+        }   // success end
+    })  // ajax end
 
-}
+}   // doPointCharge() end

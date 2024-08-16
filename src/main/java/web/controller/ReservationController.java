@@ -14,6 +14,13 @@ import java.util.Map;
 public class ReservationController {
     @Autowired ReservationService reservationService;
 
+    // 내가 예약한 구장 목록 요청
+    @GetMapping("/my/print")
+    public List<Map<String, String>> myReservationPrint() {
+        System.out.println("ReservationController.reservationListPrint");
+
+        return reservationService.myReservationPrint();
+    }
 
 
 }
