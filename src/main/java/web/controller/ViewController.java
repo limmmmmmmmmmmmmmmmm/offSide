@@ -67,9 +67,11 @@ public class ViewController {
 
 
     // ==================== [5] 포인트 관련 ==================== //
+    // 포인트 충전 페이지 요청
     @GetMapping("/point/charge")
     public String pCharge() { return "/point/charge.html"; }
 
+    // 포인트 환불 페이지 요청
     @GetMapping("/point/refund")
     public String pRefund() { return "/point/refund.html"; }
 
@@ -78,5 +80,11 @@ public class ViewController {
     //==================== [5] 결제 관련 ==================== //
     @GetMapping("/point/history")
     public String myPagepint(){return "/point/mypohistory.html";}
+
+
+    //==================== [6] 예약 관련 ==================== //
+    // 내가 예약한 구장 목록 보기 페이지 요청
+    @GetMapping("/reservation/print")
+    public String reservationPrint() { return "/reservation/reservationPrint.html"; }
 
 }
