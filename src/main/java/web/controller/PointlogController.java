@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.model.dto.PointlogDto;
-import web.model.dto.PointlogDto;
 import org.springframework.web.bind.annotation.*;
-import web.model.dto.PointlogDto;
 import web.model.dto.PointlogDto;
 import web.service.PointlogService;
 
@@ -22,8 +20,7 @@ public class PointlogController {
 
     // 회원가입시 1만포인트 지급
     @GetMapping("/pay")
-    public void pointPay(){
-
+    public void pointPay() {
     }
 
     // 충전하는 회원들 리스트 출력
@@ -34,13 +31,13 @@ public class PointlogController {
     }
 
     // 포인트 충전 신청
-    @PostMapping("/charge")
-    public boolean pointCharge(@RequestBody PointlogDto pointlogDto) {
-        System.out.println("PointlogController.pointCharge");
-        System.out.println("pointlogDto = " + pointlogDto);
-
-        return pointlogService.pointCharge(pointlogDto);
-    }
+//    @PostMapping("/charge")
+//    public boolean pointCharge(@RequestBody PointlogDto pointlogDto) {
+//        System.out.println("PointlogController.pointCharge");
+//        System.out.println("pointlogDto = " + pointlogDto);
+//
+//        return pointlogService.pointCharge(pointlogDto);
+//    }
 
     // 포인트 환불 신청
     @PostMapping("/refund")
@@ -52,12 +49,15 @@ public class PointlogController {
     }
 
 
-
-
-//    @PostMapping
-//    public boolean payAgree(){
-//        return PointlogService.payAgree()
-//    }
+    // 포인트 승인 (수정)
+    @PutMapping("/payagree")
+    public boolean payAgree(@RequestBody PointlogDto pointlogDto ){
+        //RequestBody 이거 없어서 계속 안됨
+            // boolean 형태로 Dto를 매개변수로 이용
+        System.out.println("포인트 승인 컨트롤러");
+        System.out.println("pointlogDto = " + pointlogDto);
+        return pointlogService.payAgree(pointlogDto);
+    }
 
     //포인트 누적 출력
     @GetMapping("/add")
