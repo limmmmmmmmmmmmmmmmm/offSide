@@ -3,16 +3,6 @@ console.log('refund.js');
 //let price = 0;          // 환불할 금액을 받을 변수
 let loginMno = 0;       // 현재 로그인된 회원번호를 받을 변수 (0이면 비로그인)
 
-// 환불 가능 금액 계산
-document.addEventListener('DOMContentLoaded', () => {
-    const refundPriceSelect = document.getElementById('refundPrice');
-
-    // 환불 금액 선택 옵션 생성
-    for (let refundPrice = 1000; refundPrice <= 30000; refundPrice += 1000) {
-        refundPriceSelect.innerHTML += `<option value="${refundPrice}">${refundPrice}</option>`;
-    }
-});
-
 // 로그인 체크
 doLoginCheck();
 function doLoginCheck() {
@@ -29,12 +19,12 @@ function doLoginCheck() {
 
 // 포인트 환불 함수
 function doPointRefund() {  console.log('doPointRefund()');
-    let refundPrice = document.querySelector(`${refundPrice}`).value;               console.log(refundPrice);
+    let refundPrice = document.querySelector('#refundPrice').value;                 console.log(refundPrice);
     let accountHolderName = document.querySelector('.accountHolderName').value;     console.log(accountHolderName);
     let bankName = document.querySelector('.bankName').value;                       console.log(bankName);
     let account = document.querySelector('.account').value;                         console.log(account);
     
-    if (rPrice == 0) {
+    if (refundPrice == '') {
         alert('환불하실 금액 버튼을 선택해주시기 바랍니다.');
         return;
     }
@@ -52,9 +42,9 @@ function doPointRefund() {  console.log('doPointRefund()');
     }
 
     let info = {
-        pindecrease : rPrice,             // 환불할 금액
+        pindecrease : refundPrice,                                       // 환불할 금액
         accountlog : `${accountHolderName}_${bankName}_${account}`,      // 계좌주명_은행명_계좌번호
-        mno : loginMno                   // 로그인된 회원번호
+        mno : loginMno                                                   // 로그인된 회원번호
     }
     console.log(info);
 
@@ -74,3 +64,12 @@ function doPointRefund() {  console.log('doPointRefund()');
 
 }   // doPointRefund() end
 
+// 환불 가능 금액 계산
+document.addEventListener('DOMContentLoaded', () => {
+    const refundPriceSelect = document.getElementById('refundPrice');
+
+    // 환불 금액 선택 옵션 생성
+    for (let refundPrice = 1000; refundPrice <= 30000; refundPrice += 1000) {
+        refundPriceSelect.innerHTML += `<option value="${refundPrice}">${refundPrice}</option>`;
+    }
+});
