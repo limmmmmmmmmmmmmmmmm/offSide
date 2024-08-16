@@ -41,6 +41,7 @@ function bUpdate(){ console.log('bUpdate()');
     let bdatetime = document.querySelector(".bdatetime").value;
     let bprice = document.querySelector(".bprice").value;
 
+
     let info = { //info 에 bno까지 같이 넣어주고
         btitle : btitle , 
         baddress : baddress , 

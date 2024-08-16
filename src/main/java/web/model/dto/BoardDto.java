@@ -24,5 +24,9 @@ public class BoardDto {
     //업로드시 바이트를 저장하고 있는 필드2
     private MultipartFile uploadFile2;// 첨부파일
 
+    // + 검색 필드
+    private String searchKey;   // 8. 검색 조회시 사용되는 필드명
+    private String searchKeyword; // 9. 검색 조회시 사용되는 필드의 값
+
 
 }
