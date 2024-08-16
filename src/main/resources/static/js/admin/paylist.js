@@ -28,7 +28,7 @@ function dopaylist(){  console.log('dopaylist()');
                                          <div>${p.accountlog}</div>
                                          <div>${p.papprovedate}</div>
                                          <div>${p.pregistration}</div>`
-                                if( p.pstate == 1 ){
+                                if( p.pstate == 0 ){
                                     html +=`<button type="button" onclick="payAgree(${p.pno})">포인트 승인</button>`;
                                 }else{
                                     html +=`<button type="button" onclick="payAgree(${p.pno})">포인트 승인 해제</button>`;

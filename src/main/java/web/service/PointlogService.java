@@ -35,7 +35,7 @@ public class PointlogService {
         //
         int pstate = point.getPstate();
         //
-        pointlogDto.setPstate( pstate == 1 ? 0 : 1 );
+        pointlogDto.setPstate( pstate == 0 ? 1 : 0 );
 
         System.out.println(">>>>>>pointlogDto = " + pointlogDto);
 
