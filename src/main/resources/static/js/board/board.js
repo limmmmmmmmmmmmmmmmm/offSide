@@ -133,4 +133,3 @@ function reservation(bno){
         });  // ajax end
 
 } // reservation end
-

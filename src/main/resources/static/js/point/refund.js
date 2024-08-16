@@ -68,8 +68,30 @@ function doPointRefund() {  console.log('doPointRefund()');
 document.addEventListener('DOMContentLoaded', () => {
     const refundPriceSelect = document.getElementById('refundPrice');
 
+    // 현재 포인트
+    let currentPoint = printadd();
+    console.log(currentPoint);
+
     // 환불 금액 선택 옵션 생성
-    for (let refundPrice = 1000; refundPrice <= 30000; refundPrice += 1000) {
+    for (let refundPrice = 1000; refundPrice <= currentPoint; refundPrice += 1000) {
         refundPriceSelect.innerHTML += `<option value="${refundPrice}">${refundPrice}</option>`;
     }
 });
+
+
+// 현재 포인트를 구하는 함수
+function printadd(){console.log('printadd()');
+    let point = 0;
+
+    $.ajax({
+        async:false,
+        method:'get',
+        url:"/member/add",
+        success:function(result){ console.log(result);
+           point = result;
+        }
+    });
+
+    return point;
+
+}
