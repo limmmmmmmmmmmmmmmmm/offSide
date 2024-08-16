@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import web.model.dto.PointlogDto;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class PointlogDao extends Dao {
         ArrayList<PointlogDto> list = new ArrayList<>();
         try {
             System.out.println("포인트 다오");
-            String sql = "SELECT m.mid, m.mname, p.pindecrease, p.preason, p.accountlog, p.papprovedate, p.pregistration\n" +
+            String sql = "SELECT m.mid, m.mname, p.pno,  p.pindecrease, p.preason, p.accountlog, p.papprovedate, p.pregistration, p.pstate\n" +
                     "FROM pointLog p\n" +
                     "JOIN member m\n" +
                     "ON p.mno = m.mno\n" +
@@ -93,6 +94,8 @@ public class PointlogDao extends Dao {
             while (rs.next()){
                 // 다른 Dto 필드값을 넣을때 Map 사용 또는 Dto에 추가하기
                 PointlogDto pointlogDto = PointlogDto.builder()
+                        .pno(rs.getInt("pno"))
+                        .pstate(rs.getInt("pstate"))
                         .mid(rs.getString("mid"))
                         .mname(rs.getString("mname"))
                         .pindecrease(rs.getInt("pindecrease"))
@@ -113,14 +116,45 @@ public class PointlogDao extends Dao {
 
     }
     // 버튼 승인
-    public boolean payAgree(){
+    public boolean payAgree(PointlogDto pointlogDto){
         try {
-            String sql = "";
-
+            System.out.println("포인트 승인 다오");
+            String sql = "update pointLog set pstate = ? where pno = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,pointlogDto.getPstate());
+            ps.setInt(2,pointlogDto.getPno());
+            int count = ps.executeUpdate();
+            if (count==1){
+                System.out.println("등록성공");
+                return true;
+            }
         }catch (Exception e){
             System.out.println(e);
         }
-        return false;
+       return false;
+    }
+
+    // 포인트로그 번호를 이용한 포인트 정보 반환
+    public PointlogDto getPointLog( int pno ){
+        try {
+            String sql = "select* from pointLog where pno = ?;";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, pno);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                PointlogDto pointlogDto = PointlogDto.builder()
+                        .pstate( rs.getInt("pstate"))
+                        .pindecrease( rs.getInt("pindecrease"))
+                        .preason( rs.getString("preason"))
+                        .mno( rs.getInt("mno"))
+                        .accountlog( rs.getString("accountlog"))
+                        .papprovedate( rs.getString("papprovedate"))
+                        .pregistration( rs.getString("pregistration"))
+                        .build();
+                return pointlogDto;
+            }
+        }catch (Exception e){   System.out.println(e);      }
+        return null;
     }
 
     //포인트 누적 출력

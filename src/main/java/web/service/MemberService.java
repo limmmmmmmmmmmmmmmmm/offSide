@@ -20,7 +20,7 @@ public class MemberService {
     @Autowired  MemberDao memberDao;
 
     @Autowired PointlogService pointlogService;
-    @Autowired PointlogDao pointlogDao;
+    @Autowired PointlogDao pointlogDao ;
 
     // [1] 회원가입
     public boolean OffSidSignup(MemberDto memberDto){
