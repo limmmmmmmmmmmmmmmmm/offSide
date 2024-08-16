@@ -58,6 +58,10 @@ function boardPrint() {     console.log('boardPrint()');
                     <div>
                         ${b.bprice}
                     </div>
+
+                    <div>
+                        <button type="button" onclick="location.href='#'">예약</button>
+                    </div>
                 `
         if (mno == 1) {
             html += `

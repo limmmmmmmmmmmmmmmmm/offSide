@@ -2,6 +2,10 @@ package web.model.dao;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import web.model.dto.*;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import web.model.dto.PointlogDto;
 
 
@@ -9,6 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import web.model.dto.PointlogDto;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import web.model.dto.BoardDto;
+import web.model.dto.PointlogDto;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @Component
 public class PointlogDao extends Dao {
@@ -31,6 +44,37 @@ public class PointlogDao extends Dao {
         }catch (Exception e){ System.out.println(e);
         }return false;
     }   // method end
+
+    //회원 포인트 내역 출력
+    public List<PointlogDto> mypointPrint(int loginNo){
+        System.out.println("PointlogDao.mypointPrint");
+        System.out.println("loginNo = " + loginNo);
+        List<PointlogDto> list = new ArrayList<>();
+        try {
+            String sql= "SELECT * \n" +
+                    " FROM pointLog \n" +
+                    " WHERE mno = ?\n" +
+                    "  AND preason LIKE '%포인트충전%';";
+            PreparedStatement ps= conn.prepareStatement(sql);
+            ps.setInt(1,loginNo);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                PointlogDto pointlogDto = PointlogDto.builder()
+                        .mno(rs.getInt("mno"))
+                        .preason(rs.getString("preason"))
+                        .pregistration(rs.getString("pregistration"))   //레코드 등록 날짜
+                        .pindecrease(rs.getInt("pindecrease"))
+                        .build();
+                System.out.println(pointlogDto);
+                list.add(pointlogDto);
+            }
+        }catch (Exception e){
+            System.out.println("e = " + e);
+        }
+        return list;
+    }
+
+
 
 
 
@@ -79,4 +123,30 @@ public class PointlogDao extends Dao {
         return false;
     }
 
+    //포인트 누적 출력
+     public PointlogDto pointAdd(){
+        try {
+            String sql="select mno, sum(pindecrease) from pointLog where pstate= 1 group by mno;";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return  PointlogDto.builder()
+                        .mno(rs.getInt("mno"))
+                        .pindecrease(rs.getInt("pindecrease"))
+                        .pstate(rs.getInt("pstate"))
+                        .build();
+            }
+        }catch (Exception e){
+            System.out.println("e = " + e);
+        }
+        return null;
+     }
+
 }
+
+
+
+
+
+
