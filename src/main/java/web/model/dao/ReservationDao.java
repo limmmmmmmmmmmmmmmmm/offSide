@@ -67,6 +67,9 @@ public class ReservationDao extends Dao {
 
     // 구장 예약 취소
     public boolean StadiumCancellation( int rstate , int bno , int mno ){
+        System.out.println("ReservationDao.StadiumCancellation");
+        System.out.println("rstate = " + rstate + ", bno = " + bno + ", mno = " + mno);
+
         try {
             String sql = "update reservation set rstate = ? where bno = ? and mno = ? ";
             PreparedStatement ps = conn.prepareStatement(sql);
