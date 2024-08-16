@@ -15,7 +15,7 @@ public class PointlogService {
     @Autowired PointlogDao pointlogDao;
 
 
-    // 회원가입시 1만포인트 지급
+    // (통합) 포인트 로그 서비스 , 1.회원가입 포인트 충ㄹ전 , 2.포인트 충전 신청 , 3.포인트 환불 신청
     public boolean pointPay(PointlogDto pointlogDto){
         return pointlogDao.pointPay(pointlogDto);
 

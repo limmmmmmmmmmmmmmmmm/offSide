@@ -58,12 +58,24 @@ function boardPrint() {     console.log('boardPrint()');
                     <div>
                         ${b.bprice}
                     </div>
+                `;
 
-                    <div>
-                        <button type="button" onclick="location.href='#'">예약</button>
-                    </div>
-                `
-        if (mno == 1) {
+        $.ajax({
+            async : false ,
+            method : 'get' ,
+            url : "reservation/effectiveness" ,
+            data : { bno : b.bno } ,
+            success : result2 => {
+                if( result2 ){ // 만약에 현재 bno가 내가 예약한 bno 이면 구장 예약중 이고 아니면 구장 예약 버튼
+                    html += `구장 예약 중`
+                }else{
+                    html += `<div> <button type="button" onclick="reservation(${b.bno})"> 구장 예약 </button>  </div>`
+                }
+            }
+        });
+
+
+        if (mno == 1) { // mno=1 관리자 회원번호 , 만약에 관리자이면 수정/삭제 할수 있도록 버튼 보이기
             html += `
                     <div>
                         <button type="button" onclick="location.href='/board/update?bno=${b.bno}'">수정</button>
@@ -100,3 +112,47 @@ function bDelete(bno){
     });  // ajax end
 
 }   // bDelete() end
+
+
+
+// 회원 구장 예약 함수
+function reservation(bno){
+    $.ajax({
+            async : false,
+            method : 'post',
+            data : {bno : bno},
+            url : "/reservation/stadiumreservation",
+            success : (r)=>{ console.log(r);
+                if(r){
+                    alert('예약 성공');
+                    boardPrint();
+                } else{
+                    alert('예약 실패');
+                }
+            }     // success end
+        });  // ajax end
+
+} // reservation
+
+// 회원 구장 예약 취소
+function cancellation(bno){
+
+$.ajax({
+            async : false,
+            method : 'put',
+            data : {bno : bno},
+            url : "/reservation/stadiumcancellation",
+            success : (r)=>{ console.log(r);
+                if(r){
+                    alert('취소 성공');
+                    boardPrint();
+                } else{
+                    alert('취소 실패');
+                }
+            }     // success end
+        });  // ajax end
+
+
+
+
+}
