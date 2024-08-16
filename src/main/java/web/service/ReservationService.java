@@ -101,6 +101,7 @@ public class ReservationService {
 
         // [1] 구장 예약 취소
         boolean result = reservationDao.StadiumCancellation( 0 , bno , loginMto );
+        System.out.println("result = " + result);
         if( result == false ){ return false; } // 구장예약취소 실패
 
         // 현재시간 구하는 함수
