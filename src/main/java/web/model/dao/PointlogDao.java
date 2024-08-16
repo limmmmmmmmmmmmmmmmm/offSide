@@ -63,6 +63,7 @@ public class PointlogDao extends Dao {
                         .preason(rs.getString("preason"))
                         .pregistration(rs.getString("pregistration"))   //레코드 등록 날짜
                         .pindecrease(rs.getInt("pindecrease"))
+                        .pstate(rs.getInt("pstate"))
                         .build();
                 System.out.println(pointlogDto);
                 list.add(pointlogDto);
@@ -123,25 +124,20 @@ public class PointlogDao extends Dao {
     }
 
     //포인트 누적 출력
-     public PointlogDto pointAdd(){
+     public int pointAdd(int loginNo){
         try {
-            String sql="select mno, sum(pindecrease) from pointLog where pstate= 1 group by mno;";
+            String sql= "select mno, sum(pindecrease) from pointLog where pstate= 1 and mno=? group by mno;";
             PreparedStatement ps=conn.prepareStatement(sql);
+            ps.setInt(1,loginNo);
             ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                return  PointlogDto.builder()
-                        .mno(rs.getInt("mno"))
-                        .pindecrease(rs.getInt("pindecrease"))
-                        .pstate(rs.getInt("pstate"))
-                        .build();
+            if (rs.next()){
+                return rs.getInt("sum(pindecrease)");
             }
         }catch (Exception e){
             System.out.println("e = " + e);
         }
-        return null;
+        return 0;
      }
-
 }
 
 

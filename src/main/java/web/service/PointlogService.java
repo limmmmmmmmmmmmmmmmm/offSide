@@ -51,10 +51,7 @@ public class PointlogService {
 //        return PointlogDao.payAgree()
 //    }
 
-    //포인트 누적 출력
-    public PointlogDto pointAdd(){
-        return pointlogDao.pointAdd();
-    }
+
 
 
 

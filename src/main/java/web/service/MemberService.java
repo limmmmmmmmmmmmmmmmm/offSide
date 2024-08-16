@@ -73,15 +73,15 @@ public class MemberService {
     HttpServletRequest request;
     public boolean mLogin( MemberDto memberDto ){
         System.out.println("MemberService.mLogin"); System.out.println("memberDto = " + memberDto);
-        int result =  memberDao.mLogin( memberDto );
-        if( result >= 1 ) { // 만약에 로그인 성공시
+        MemberDto result =  memberDao.mLogin( memberDto );
+        if( result.getMno() >= 1 ) { // 만약에 로그인 성공시
             // - 빌더패턴 : 생성자가 아닌 메소드를 이용한 방식의 객체 생성
             MemberDto loginDto = MemberDto.builder()
-                    .mno( result )
+                    .mno( result.getMno() )
                     .mid( memberDto.getMid() )
                     //헤더에 회원이름과 포인트를 추가
-                    .mname(memberDto.getMname())
-                    .pindecrease(memberDto.getPindecrease())
+                    .mname(result.getMname())
+//                    .pindecrease(memberDto.getPindecrease())
 
                     .build();
             HttpSession session = request.getSession();
@@ -162,6 +162,16 @@ public class MemberService {
         return  pointlogDao.mypointPrint(loginMno);
 
 
+    }
+
+    //포인트 누적 출력
+    public int pointAdd(){
+        //로그인 세션처리
+        MemberDto loginDto = loginCheck(); // 로그인된 세션정보 요청
+        System.out.println("loginDto = " + loginDto);
+        if( loginDto == null )return 0; // 비로그인이면 리턴
+        int loginMno = loginDto.getMno();
+        return pointlogDao.pointAdd(loginMno);
     }
 
 

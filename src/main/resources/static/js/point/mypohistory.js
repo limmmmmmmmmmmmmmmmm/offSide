@@ -17,9 +17,14 @@ function pointPrint(){
             console.log(result);
             html+= `<li id="pointColor"> ${r.preason}</li>
                     <li class="poinfo"> ${r.pregistration}  </li>
-                    <li class="poinfo3">+${ r.pindecrease}  </li>
-                    <p>나의 현재 포인트는 ${r.pindecrease} 입니다.</p><br/>
-                    `
+                    <li class="poinfo3">+${ r.pindecrease} </li>`
+            console.log(r.pstate);
+            if(r.pstate==0){
+              html+=`관리자 승인여부<li class="poinfo">대기중 </li> <br/>`
+            }
+            else{
+              html+=`관리자 승인여부<li class="poinfo">승인완료 </li> <br/>`
+            }
                     console.log(html);
             })
         }

@@ -88,7 +88,7 @@ public class MemberDao extends Dao{
     }
 
     //로그인 함수
-    public int mLogin( MemberDto memberDto ){
+    public MemberDto mLogin( MemberDto memberDto ){
         System.out.println("MemberDao.mLogin");
         System.out.println("memberDto = " + memberDto);
         try{String sql = "select * from member where mid = ? and mpw =?";
@@ -96,9 +96,12 @@ public class MemberDao extends Dao{
             ps.setString( 1 , memberDto.getMid() );
             ps.setString( 2 , memberDto.getMpw() );
             ResultSet rs = ps.executeQuery();
-            if( rs.next() ){ return rs.getInt("mno"); }
+           if (rs.next()) return MemberDto.builder()
+                   .mno(rs.getInt("mno")) //회원 번호 값 확인
+                   .mname(rs.getString("mname")) // 회원이름 확인
+                   .build();
         }catch (Exception e ){ System.out.println(e);   }
-        return 0; // 0 은 회원번호가 없다 뜻
+        return null; // 0 은 회원번호가 없다 뜻
     }
 
 

@@ -67,6 +67,15 @@ a{
     display: flex;
     justify-content: space-between;
 }
+.Logo2{
+    width:25px;
+  margin-left: -20px;
+}
+.Logo1{
+ width:70px;
+  margin-left: -27px;
+
+}
 
 
 

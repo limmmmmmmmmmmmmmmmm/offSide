@@ -15,10 +15,16 @@
     color: blue;
     }
 
+    .wrap{
+    width:500px;
+    margin: 0 auto;
+    }
+
 </style>
 <body>
-
+<div class="wrap">
 <div th:replace="~{ /header.html :: header }"></div>
+
 <div id="Topmain"> 마이페이지(기본설정)</div> <br/><br/>
 <div id="myinfoBox">
 
@@ -31,6 +37,8 @@
 
 <hr />
 <a id="pointHistory" href="/point/history">포인트 사용내역 보기 </a>
+
+</div>
 
 <script src="/js/member/myinfo.js"></script>
 <div th:replace="~{ /footer.html :: footer }"></div>

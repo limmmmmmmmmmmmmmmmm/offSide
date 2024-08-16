@@ -54,11 +54,7 @@ public class PointlogController {
 //        return PointlogService.payAgree()
 //    }
 
-    //포인트 누적 출력
-    @GetMapping("/add")
-    public PointlogDto pointAdd(){
-        return pointlogService.pointAdd();
-    }
+
 
 
 }

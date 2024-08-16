@@ -1,4 +1,6 @@
 console.log('header.js');
+let pindecrease;
+printadd();
 
 // 로그인 상태 확인
 loginCheck();
@@ -19,8 +21,8 @@ function loginCheck() {    console.log('loginCheck()');
                 // 비로그인 상태인 경우
                 console.log('비로그인');
                 html += `
-                        <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
-                        <li> <a href="/member/login"> <img class="Logo" src="/picture/로그인이미지.png" /> </a> </li>
+                        <a href="/"> <img class="Logo1" src="/picture/오프사이드_로고.png" /> </a>
+                        <li> <a href="/member/login"> <img class="Logo2" src="/picture/로그인이미지.png" /> </a> </li>
 
 
                         `
@@ -30,17 +32,16 @@ function loginCheck() {    console.log('loginCheck()');
                 html += `
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
                         <li> <a href="/point/charge"> 포인트 충전 </a> </li>
-                        <li> <a href="/member/my/info"> 내정보 </a> </li>
                         <li> <a href="/admin/board"> 관리자 페이지 </a> </li>
                         <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
                         `
-            } else {
+            } else {console.log(pindecrease);
                 // 일반 회원이 로그인한 경우
                 console.log('일반 회원 로그인');
                 html += `
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
                         <li>  ${result.mname}님 </li>
-                        <li>  포인트 ${result.pindecrease} </li>
+                        <li>  포인트 ${pindecrease} </li>
                         <li> <a href="/point/charge"> 포인트 충전 </a> </li>
                         <li> <a href="/member/my/info"> 내정보 </a> </li>
                         <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
@@ -71,3 +72,27 @@ function logout() { console.log('logout()');
     });     // ajax end
 
 }   // logout() end
+
+
+
+function printadd(){console.log('printadd()');
+//    //어디에
+//    let pointaddBox= document.querySelector('.pointaddBox')
+//
+//    //무엇을
+//    let html='';
+//    console.log('html')
+    $.ajax({
+        async:false,
+        method:'get',
+        url:"/member/add",
+        success:function(result){ console.log(result);
+           //html= `${result}원`
+           pindecrease=result;
+
+        }
+    });
+    //출력
+//    pointaddBox.innerHTML=html;
+
+}

@@ -24,8 +24,5 @@ public class BoardDto {
     //업로드시 바이트를 저장하고 있는 필드2
     private MultipartFile uploadFile2;// 첨부파일
 
-    //구장 예약 내역 이유
-    private String preason;     //포인트 사용 이유
-    private int mno;            //회원번호
 
 }

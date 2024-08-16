@@ -84,7 +84,11 @@ public class MemberController {
 
     }
 
-
+    //포인트 누적 출력
+    @GetMapping("/add")
+    public int pointAdd(){
+        return memberService.pointAdd();
+    }
 
 
 

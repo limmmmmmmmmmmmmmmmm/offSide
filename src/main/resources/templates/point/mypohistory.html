@@ -53,9 +53,9 @@
     <div th:replace="~{ /header.html :: header }"></div>
 
     <h3> 나의 포인트 </h2>
-        <div class="pointaddBox">11000 원</div>
+        <div class="pointaddBox"></div>
         <div id="buttons">
-            <button id="button1" type="button">포인트 환불 </button> <button id="button2" type="button">포인트 충전 </button></div><br/>
+            <button id="button1" onclick="location.href='/point/refund' " type="button">포인트 환불 </button> <button id="button2" onclick="location.href='/point/charge'" type="button">포인트 충전 </button></div><br/>
         <br/>
         <div>
             <h3> 포인트 충전 신청내역 </h2>
@@ -70,7 +70,7 @@
 </div>
 
 <script src="/js/point/mypohistory.js"></script>
-
+<script src="/js/point/pointadd.js"></script>
 
 </body>
 </html>
