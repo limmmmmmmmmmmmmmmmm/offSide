@@ -20,13 +20,22 @@ import java.time.LocalDate;
 public class ReservationService {
     @Autowired ReservationDao reservationDao;
     @Autowired MemberService memberService;
+    @Autowired PointlogService pointlogService;
+    @Autowired BoardDao boardDao;
 
     // 내가 예약한 구장 목록 요청
     public List<Map<String, String>> myReservationPrint() {
         System.out.println("ReservationService.reservationListPrint");
-    @Autowired MemberService memberService;
-    @Autowired PointlogService pointlogService;
-    @Autowired BoardDao boardDao;
+
+        // 현재 로그인된 회원번호 가져오기
+        MemberDto loginDto = memberService.loginCheck(); // 로그인된 세션정보 요청
+        System.out.println("loginDto = " + loginDto);
+        if( loginDto == null )return null; // 비로그인이면 리턴
+        int loginMno = loginDto.getMno();
+
+        return reservationDao.myReservationPrint(loginMno);
+    }
+
 
     public boolean stadiumReservation(int bno){
 
@@ -52,26 +61,18 @@ public class ReservationService {
 
         // 구장예약 성공
         // [2] 구장 예약 에 따른 포인트 로그 처리
-            // 현재시간 구하는 함수
-            LocalDate localDate = LocalDate.now();
-            PointlogDto pointlogDto = new PointlogDto();
-            pointlogDto.setPindecrease(-boardPrice);
-            pointlogDto.setPreason("구장신청");
-            pointlogDto.setPstate(1);
-            pointlogDto.setMno( loginMto );
-            pointlogDto.setAccountlog(null);
-            pointlogDto.setPapprovedate(localDate.toString());
-            boolean result2 =  pointlogService.pointPay( pointlogDto );
-            return result2;
+        // 현재시간 구하는 함수
+        LocalDate localDate = LocalDate.now();
+        PointlogDto pointlogDto = new PointlogDto();
+        pointlogDto.setPindecrease(-boardPrice);
+        pointlogDto.setPreason("구장신청");
+        pointlogDto.setPstate(1);
+        pointlogDto.setMno( loginMto );
+        pointlogDto.setAccountlog(null);
+        pointlogDto.setPapprovedate(localDate.toString());
+        boolean result2 =  pointlogService.pointPay( pointlogDto );
+        return result2;
 
-        // 현재 로그인된 회원번호 가져오기
-        MemberDto loginDto = memberService.loginCheck(); // 로그인된 세션정보 요청
-        System.out.println("loginDto = " + loginDto);
-        if( loginDto == null )return null; // 비로그인이면 리턴
-        int loginMno = loginDto.getMno();
-
-        return reservationDao.myReservationPrint(loginMno);
-    }
     }   // stadiumReservation end
 
     // 구장 취소
@@ -121,7 +122,6 @@ public class ReservationService {
         return reservationDao.effectiveness(bno , mno ,rstate);
 
     }// effectiveness end
-
 
 
 
