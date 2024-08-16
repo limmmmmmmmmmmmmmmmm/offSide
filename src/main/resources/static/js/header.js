@@ -29,6 +29,7 @@ function loginCheck() {    console.log('loginCheck()');
                 console.log('관리자 로그인');
                 html += `
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
+                        <li> <a href="/point/charge"> 포인트 충전 </a> </li>
                         <li> <a href="/member/my/info"> 내정보 </a> </li>
                         <li> <a href="/admin/board"> 관리자 페이지 </a> </li>
                         <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
@@ -40,6 +41,7 @@ function loginCheck() {    console.log('loginCheck()');
                         <a href="/"> <img class="Logo" src="/picture/오프사이드_로고.png" /> </a>
                         <li>  ${result.mname}님 </li>
                         <li>  포인트 ${result.pindecrease} </li>
+                        <li> <a href="/point/charge"> 포인트 충전 </a> </li>
                         <li> <a href="/member/my/info"> 내정보 </a> </li>
                         <li> <a href="#" onclick="logout()"> 로그아웃 </a> </li>
                         `
