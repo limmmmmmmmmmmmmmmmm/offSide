@@ -43,6 +43,7 @@ function doSignup() {
             // 4. 결과값 처리
             if (result) {
                 alert('회원가입 성공');
+                location.href = '/member/login';
             } else { alert('회원가입 실패'); }
 
         }   // succes end

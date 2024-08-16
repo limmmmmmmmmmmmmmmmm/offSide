@@ -44,7 +44,7 @@ public class MemberService {
         }else{
             return false;
         }
-        return result;
+
     }
     //  아이디 중복검사
     public boolean mIdCheck( String mid ){

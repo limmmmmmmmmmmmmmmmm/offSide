@@ -14,12 +14,12 @@ public class MemberController {
     MemberService memberService;
 
     // [1] 회원가입
-//    @PostMapping("/signup")
-//    public boolean OffSidSignup(MemberDto memberDto){
-//        System.out.println("MemberController.OffSidSignup");
-//        System.out.println("memberService = " + memberService);
-//        return memberService.OffSidSignup(memberDto);
-//    }
+    @PostMapping("/signup")
+    public boolean OffSidSignup(MemberDto memberDto){
+        System.out.println("MemberController.OffSidSignup");
+        System.out.println("memberService = " + memberService);
+        return memberService.OffSidSignup(memberDto);
+    }
 
     // 아이디 중복검사
     @GetMapping("/idcheck")
