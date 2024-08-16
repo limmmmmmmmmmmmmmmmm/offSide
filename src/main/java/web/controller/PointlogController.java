@@ -32,18 +32,16 @@ public class PointlogController {
        return pointlogService.apaylist();
     }
 
-
-
-
     // 포인트 승인 (수정)
     @PutMapping("/payagree")
     public boolean payAgree(@RequestBody PointlogDto pointlogDto ){
         //RequestBody 이거 없어서 계속 안됨
-            // boolean 형태로 Dto를 매개변수로 이용
+        // boolean 형태로 Dto를 매개변수로 이용
         System.out.println("포인트 승인 컨트롤러");
         System.out.println("pointlogDto = " + pointlogDto);
         return pointlogService.payAgree(pointlogDto);
     }
+
 
 
 
