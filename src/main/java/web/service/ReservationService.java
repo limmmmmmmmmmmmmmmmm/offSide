@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import web.model.dao.BoardDao;
+import web.model.dao.PointlogDao;
 import web.model.dao.ReservationDao;
 import web.model.dto.MemberDto;
 
@@ -22,6 +23,8 @@ public class ReservationService {
     @Autowired MemberService memberService;
     @Autowired PointlogService pointlogService;
     @Autowired BoardDao boardDao;
+    @Autowired PointlogDao pointlogDao;
+
 
     // 내가 예약한 구장 목록 요청
     public List<Map<String, String>> myReservationPrint() {
@@ -50,10 +53,11 @@ public class ReservationService {
         int loginMto = loginDto.getMno();
 
         // 만약에 내 포인트가 구장 가격보다 작으면 실패
-//        int myPoint = ????
-//        if( boardPrice > myPoint ){
-//            return false;
-//        }
+        int myPoint = pointlogDao.pointAdd(loginMto);
+        System.out.println("내 현재포인트 : " + myPoint );
+        if( boardPrice > myPoint ){
+            return false;
+        }
 
         // [1] 구장 예약
         boolean result = reservationDao.stadiumReservation( 1 , loginMto , bno );
@@ -114,11 +118,10 @@ public class ReservationService {
 
         // bno : 구장 번호  -- JS 전달받음
         // mno : 로그인된 회원  -- SPRING 확인
-        // rstate : 예약중인 , 1 -- 고정값
         MemberDto loginDto = memberService.loginCheck();
         if (loginDto == null) return false;
         int mno  = loginDto.getMno();
-        int rstate = 1;
+        int rstate = 1;  // rstate : 예약중인 , 1 -- 고정값
         return reservationDao.effectiveness(bno , mno ,rstate);
 
     }// effectiveness end

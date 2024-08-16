@@ -127,12 +127,12 @@ function reservation(bno){
                     alert('예약 성공');
                     boardPrint();
                 } else{
-                    alert('예약 실패');
+                    alert('포인트가 부족 합니다.');
                 }
             }     // success end
         });  // ajax end
 
-} // reservation
+} // reservation end
 
 // 회원 구장 예약 취소
 function cancellation(bno){
@@ -151,8 +151,4 @@ $.ajax({
                 }
             }     // success end
         });  // ajax end
-
-
-
-
-}
+}   // cancellation end
