@@ -16,17 +16,13 @@ a{
 
 /* ============= 레이아웃 CSS ============= */
 #footer{
-    width: 500px;
     margin: 0 auto;
     height : auto ;
     background-color: #282b33;
+    width: 500px;
 }
 
 
-/*===========글씨============ */
-*{
-    
-}
 
 #firstLine,#secondLine{
     display: flex;
@@ -35,25 +31,21 @@ a{
     font-size: 11px;
 }
 #secondLine > div > div {
-    margin-top: 10px;font-size: 11px;
+    margin-top: 10px; font-size: 11px;
 }
 #firstLine > div > div {
-    margin-top: 10px;font-size: 11px;
-}
-#rightcontent{
-    margin-left: 15px;
+    margin-top: 10px; font-size: 11px;
 }
 
+
 #thirdLine{
-    margin: 20px;
+    margin: 10px;
 }
 #thirdLine > div{
     margin-top: 10px;
     font-size: 11px;
 }
-#firstcneter{
-    margin-right: 20px;
-}
+
 
 h6{
     color: white;
