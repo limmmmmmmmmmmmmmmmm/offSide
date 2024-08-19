@@ -41,11 +41,12 @@ public class BoardDao extends Dao{
         System.out.println("BoardDao.bPrint");
         ArrayList<BoardDto> list = new ArrayList<>();
         try {
-            String sql = "select * from board where  bdatetime > '2024-08-19'";
+            // String sql = "select * from board where  bdatetime > '2024-08-19'";
+            String sql = "select * from board";
             if(searchKeyword.isEmpty() ){
 
             }else {
-                sql += " and " + searchKey + " like '%" + searchKeyword + "%' ";
+                sql += " where " + searchKey + " like '%" + searchKeyword + "%' ";
             }
             System.out.println("sql = " + sql);
             PreparedStatement ps = conn.prepareStatement(sql);

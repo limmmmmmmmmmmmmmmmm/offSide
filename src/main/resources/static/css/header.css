@@ -73,5 +73,84 @@ a{
 }
 
 
+/* ============= 게시물 출력 CSS , 검색 구역   ============= */
+.searchBox{
+    margin-bottom: 20px;     display: flex;
+}
+.searchBox > .searchKey{
+    padding: 5px;
+    border: 1px solid #e8e8;
+    width: 75px;
+    margin-right: 10px;
+}
+.searchBox >.searchKeyword{
+    padding: 10px;
+    border: 1px solid #e8e8;
+    width: 300px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.searchBox > button {
+    width: 100px;
+    border: none;
+    font-size: 20px;
+    background-color: #292929;
+    color: white;
+}
+/* ============= 게시물 출력 CSS , 구장 출력 박스  ============= */
+.boardDetailBox{
+        display: flex;
+        justify-content: space-between;
+        padding : 30px 0px ;
+}
+.boardDetailLeft , .boardDetailRight {
+    margin : 0px;
+}
+.boardDetailLeft > #date{
+    font-size: 12px;
+}
+
+.boardDetailLeft > #title{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.boardDetailLeft > #address{
+font-size: 10px;
+}
+
+.boardDetailLeft > #price{
+        font-size: 28px;
+        margin-top : 10px;
+}
+.boardDetailRight > div > button{
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #59f200;
+    font-size: 18px;
+    color: white;
+}
+.boardDetailRight > div {
+        font-size: 36px;
+        color: #59f200;
+        font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

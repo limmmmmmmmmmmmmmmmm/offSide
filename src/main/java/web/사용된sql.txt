@@ -89,5 +89,3 @@ select *from reservation;
 insert into reservation(rstate,mno,bno) values(0,1,1);
 insert into reservation(rstate,mno,bno) values(0,2,2);
 insert into reservation(rstate,mno,bno) values(0,1,2);
-
-

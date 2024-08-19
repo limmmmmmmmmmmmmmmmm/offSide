@@ -51,22 +51,25 @@ function boardPrint() {     console.log('boardPrint()');
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         </button>
                     </div>
-                    
-                    <div id="date">
-                        ${b.bdatetime}
-                    </div>
+                    <div class="boardDetailBox">
+                        <div class="boardDetailLeft">
+                                <div id="date">
+                                    ${b.bdatetime}
+                                </div>
 
-                    <div  id="title">
-                        ${b.btitle}
-                    </div>
+                                <div  id="title">
+                                    ${b.btitle}
+                                </div>
 
-                    <div  id="address">
-                        ${b.baddress}
-                    </div>
+                                <div  id="address">
+                                    ${b.baddress}
+                                </div>
 
-                    <div  id="price">
-                        ${b.bprice}원
-                    </div>
+                                <div  id="price">
+                                    ${b.bprice.toLocaleString() }원
+                                </div>
+                        </div>
+                        <div class="boardDetailRight">
                 `;
 
         // 내가 예약한 구장인지 체크 ajax
@@ -100,18 +103,17 @@ function boardPrint() {     console.log('boardPrint()');
 
             }
         });
-
+        html += `</div>
+            </div> `
 
         if (mno == 1) { // mno=1 관리자 회원번호 , 만약에 관리자이면 수정/삭제 할수 있도록 버튼 보이기
             html += `
-                    <div>
+                    <div style="margin-bottom : 20px;">
                         <button type="button" id="boardbtn1" onclick="location.href='/board/update?bno=${b.bno}'">수정</button>
                         <button type="button" id="boardbtn1" onclick="bDelete(${b.bno})">삭제</button>
                     </div>
                     `
         }
-
-        html += `</div> <br>`
     });
 
     // 출력

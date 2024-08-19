@@ -46,6 +46,7 @@ a{
 
 #thirdLine{
     margin: 20px;
+        padding: 20px 0px;
 }
 #thirdLine > div{
     margin-top: 10px;
