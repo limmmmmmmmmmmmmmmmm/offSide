@@ -74,6 +74,7 @@ public class MemberService {
     public boolean mLogin( MemberDto memberDto ){
         System.out.println("MemberService.mLogin"); System.out.println("memberDto = " + memberDto);
         MemberDto result =  memberDao.mLogin( memberDto );
+        if (result == null) return false;
         if( result.getMno() >= 1 ) { // 만약에 로그인 성공시
             // - 빌더패턴 : 생성자가 아닌 메소드를 이용한 방식의 객체 생성
             MemberDto loginDto = MemberDto.builder()
