@@ -5,15 +5,24 @@ boardPrint();
 function boardPrint() {     console.log('boardPrint()');
     // ajax로부터 응답받은 객체를 저장할 변수
     let boardDto = { };
+    let searchKey = document.querySelector(".searchKey").value;
+    let searchKeyword = document.querySelector(".searchKeyword").value;
+
+    console.log( searchKey )
+    console.log( searchKeyword )
 
     $.ajax({
         async : false,
         method : "get",
         url : "/board/list",
+        data : { 'searchKey' : searchKey , 'searchKeyword' : searchKeyword} ,
         success : (result) => {     console.log(result);
             boardDto = result;
             console.log(boardDto);
-        }   // success end
+        },   // success end
+        error : (e) =>{
+              console.log(e);
+        }
     })  // ajax end
 
     // 어디에

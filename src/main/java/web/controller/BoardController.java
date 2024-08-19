@@ -16,9 +16,11 @@ public class BoardController {
 
     // 구장 목록 출력
     @GetMapping("/list")
-    public List<BoardDto> bPrint() {
+    // HTTP 매개변수 대소문자 구분시 @RequestParam 사용하여 명시하기.
+    public List<BoardDto> bPrint( @RequestParam("searchKey") String searchKey, @RequestParam("searchKeyword") String searchKeyword) {
         System.out.println("BoardController.bPrint");
-        return boardService.bPrint();
+        System.out.println("searchKey = " + searchKey + ", searchKeyword = " + searchKeyword);
+        return boardService.bPrint(searchKey , searchKeyword);
     }
 
 
