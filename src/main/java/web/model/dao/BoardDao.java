@@ -37,11 +37,17 @@ public class BoardDao extends Dao{
     }
 
     // 구장 목록 출력
-    public List<BoardDto> bPrint() {
+    public List<BoardDto> bPrint(String searchKey , String searchKeyword) {
         System.out.println("BoardDao.bPrint");
         ArrayList<BoardDto> list = new ArrayList<>();
         try {
-            String sql = "select * from board order by bno desc;";
+            String sql = "select * from board";
+            if(searchKeyword.isEmpty() ){
+
+            }else {
+                sql += " where " + searchKey + " like '%" + searchKeyword + "%'";
+            }
+            System.out.println("sql = " + sql);
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

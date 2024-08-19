@@ -20,9 +20,9 @@ public class BoardService {
     @Autowired FileService fileService;
 
     // 구장 목록 출력
-    public List<BoardDto> bPrint() {
+    public List<BoardDto> bPrint(String searchKey , String searchKeyword) {
         System.out.println("BoardService.bPrint");
-        return boardDao.bPrint();
+        return boardDao.bPrint(searchKey ,searchKeyword);
     }
 
     //게시물 등록

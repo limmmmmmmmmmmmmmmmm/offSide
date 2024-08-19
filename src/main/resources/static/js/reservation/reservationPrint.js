@@ -57,7 +57,7 @@ function myReservationPrint() {     console.log('myReservationPrint()');
                         예약 완료
                     </div>
                     <div>
-                        <button type="button" onclick="cancellation(${r.bno})">예약 취소하기</button>
+                        <button type="button" onclick="location.href='#'">예약 취소하기</button>
                     </div>
                 </div> <br>
                 `
