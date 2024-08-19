@@ -23,7 +23,7 @@ function readUpdate(){console.log('readUpdate()');
         })  // ajax end
         // 1. bno별 각자 게시물 출력 / innerHTMl이 아닌 value로 출력 값을 가져와야 하니까
         document.querySelector(".btitle").value = `${board.btitle}`;
-        document.querySelector("#sample6_address").value = `${board.baddress}`;
+        document.querySelector("#sample6_detailAddress").value = `${board.baddress}`;
         document.querySelector(".bdatetime").value = `${board.bdatetime}`;
         document.querySelector(".bprice").value = `${board.bprice}`;
         document.querySelector(".btnBox").innerHTML = `<button type="button" onclick="bUpdate()">수정</button>

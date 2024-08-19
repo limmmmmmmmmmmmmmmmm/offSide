@@ -43,20 +43,20 @@ function boardPrint() {     console.log('boardPrint()');
                         </button>
                     </div>
                     
-                    <div>
+                    <div id="date">
                         ${b.bdatetime}
                     </div>
 
-                    <div>
+                    <div  id="title">
                         ${b.btitle}
                     </div>
 
-                    <div>
+                    <div  id="address">
                         ${b.baddress}
                     </div>
 
-                    <div>
-                        ${b.bprice}
+                    <div  id="price">
+                        ${b.bprice}원 
                     </div>
                 `;
 
@@ -69,7 +69,7 @@ function boardPrint() {     console.log('boardPrint()');
                 if( result2 ){ // 만약에 현재 bno가 내가 예약한 bno 이면 구장 예약중 이고 아니면 구장 예약 버튼
                     html += `구장 예약 중`
                 }else{
-                    html += `<div> <button type="button" onclick="reservation(${b.bno})"> 구장 예약 </button>  </div>`
+                    html += `<div> <button id="boardbtn" type="button" onclick="reservation(${b.bno})"> 구장 예약 </button>  </div>`
                 }
             }
         });
@@ -78,8 +78,8 @@ function boardPrint() {     console.log('boardPrint()');
         if (mno == 1) { // mno=1 관리자 회원번호 , 만약에 관리자이면 수정/삭제 할수 있도록 버튼 보이기
             html += `
                     <div>
-                        <button type="button" onclick="location.href='/board/update?bno=${b.bno}'">수정</button>
-                        <button type="button" onclick="bDelete(${b.bno})">삭제</button>
+                        <button type="button" id="boardbtn1" onclick="location.href='/board/update?bno=${b.bno}'">수정</button>
+                        <button type="button" id="boardbtn1" onclick="bDelete(${b.bno})">삭제</button>
                     </div>
                     `
         }
