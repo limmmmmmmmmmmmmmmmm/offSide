@@ -4,7 +4,7 @@
     margin: 0px auto;
     font-size: 12px;
     box-sizing: border-box;
-    width: 500px;
+
 }
 
 li{
@@ -50,6 +50,7 @@ a{
     display: flex;
     justify-content:space-between;
     align-items: center;
+    width: 500px;
 }
 
 
@@ -68,7 +69,7 @@ a{
 }
 .Logo1{
  width:70px;
-  margin-left: -40px;
+     margin-left: -35px;
 }
 
 

@@ -1,7 +1,6 @@
 /* =============== 공통 CSS =============== */
 *{
     padding: 0px;
-    margin: 0px;
     font-size: 12px;
     box-sizing: border-box;
 }
@@ -59,13 +58,6 @@ a{
 h6{
     color: white;
     font-size: 13px ;
-}
-
-.leftcontent1{
-    margin-right: 150px;
-}
-.leftcontent2{
-    margin-right: 150px;
 }
 
 .rightcontent{
