@@ -4,6 +4,70 @@
     <meta charset="UTF-8">
     <title>포인트 충전</title>
 </head>
+<style>
+    .pbtn{
+    width: 32%;
+    margin-bottom: 20px;
+   
+    }
+    .pbtn1{
+    width: 32%;
+    margin-bottom: 20px;
+    
+    }
+    .pbtn2{
+    width: 32%;
+    margin-bottom: 20px;
+    
+    }
+    button{
+    color: #727f88;;
+    background-color: #f8fafb;
+    border-radius: 10px;
+    line-height: 20px;
+    border: none; /* 기본 테두리 제거 */
+    outline: none; /* 포커스 시 기본 아웃라인 제거 */
+    box-shadow: none; /* 기본 그림자 제거 */
+    margin-bottom: 7px;
+    margin-right: 3px;
+    }
+
+    #btn1{
+        display:flex;
+    }
+    #btn2{
+        display:flex;
+    }
+    #btn3{
+        display:flex;
+    }
+
+    button:hover {
+  background-color: #1570ff; /* 호버 시 배경색 변경 */
+  color:#f8fafb; 
+}
+#chargebtn{
+    background-color: #1570ff;
+    padding: 20px;
+    color:#f8fafb;
+    border-radius: 0;
+    margin: 30px 0px;
+}
+input:focus {
+    border: 2px solid #e6ecf1;; /* 포커스 시 테두리 색상 및 두께 설정 */
+    outline: none; /* 기본 아웃라인 제거 */
+  }
+
+#input{
+    border: 1px solid #e6ecf1;
+    background-color: #f8fafb;
+    border-radius: 8px;
+    width: 50%;
+    height: 20px;
+    
+
+}
+</style>
 <body>
     <div th:replace="~{ /header.html :: header }"></div>
 
@@ -13,25 +77,28 @@
         <div>충전할 금액</div>
 
         <div>
-            <button type="button" onclick="getPrice(5000)">5,000원</button>
-            <button type="button" onclick="getPrice(10000)">10,000원</button>
-            <button type="button" onclick="getPrice(15000)">15,000원</button> <br>
-
-            <button type="button" onclick="getPrice(20000)">20,000원</button>
-            <button type="button" onclick="getPrice(25000)">25,000원</button>
-            <button type="button" onclick="getPrice(30000)">30,000원</button> <br>
-
-            <button type="button" onclick="getPrice(40000)">40,000원</button>
-            <button type="button" onclick="getPrice(50000)">50,000원</button>
-            <button type="button" onclick="getPrice(100000)">100,000원</button>
+            <div id="btn1">
+            <button id="pbtn" type="button" onclick="getPrice(10000)">10,000원</button>
+            <button id="pbtn" type="button" onclick="getPrice(15000)">15,000원</button> 
+            <button id="pbtn"  type="button" onclick="getPrice(20000)">20,000원</button> <br>
+            </div>
+            <div id="btn2">
+            <button id="pbtn1"type="button" onclick="getPrice(25000)">25,000원</button>
+            <button id="pbtn1"type="button" onclick="getPrice(30000)">30,000원</button> 
+            <button id="pbtn1"type="button" onclick="getPrice(40000)">40,000원</button><br>
+            </div>
+            <div id="btn3">
+            <button id="pbtn2"type="button" onclick="getPrice(50000)">50,000원</button>
+            <button id="pbtn2"type="button" onclick="getPrice(100000)">100,000원</button>
+            </div>
         </div> <br>
 
         <div>
             입금자명 <br>
-            <input type="text" class="depositorName" />
+            <input  placeholder="입금자의 이름을 입력해주세요."  id="input" type="text" class="depositorName" />
         </div> <br>
 
-        <button type="button" onclick="doPointCharge()">충전 신청</button>
+        <button id="chargebtn" type="button" onclick="doPointCharge()">충전 신청</button>
     </div>
 
     <script src="/js/point/charge.js"></script>

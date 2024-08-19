@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <style>
+    .Logo1 {
+    width: 70px;
+    margin-left: -40px;
+}
     ._mtitle{
         font-weight: bold;
     }
@@ -13,12 +17,40 @@
     }
     #pointHistory{
     color: blue;
+    font-weight: bold;
     }
 
     .wrap{
     width:500px;
     margin: 0 auto;
     }
+    #update{
+  height: 30px;
+  color: white;
+  width: 50%;
+  background-color: #1570ff;
+  border-radius: 12px;
+  border: none; /* 버튼의 테두리 제거 */
+  margin-bottom: 10px;
+
+}
+#delete{
+  height: 30px;
+  color: white;
+  width: 50%;
+  background-color: #1570ff;
+  border-radius: 12px;
+  border: none; /* 버튼의 테두리 제거 */
+  margin-bottom: 10px;
+  margin: 0 20px;
+
+}
+#Updateall{
+    display: flex;
+}
+#reservationPrint{
+font-weight: bold;
+}
 
 </style>
 <body>
@@ -30,10 +62,11 @@
 
 
 </div>
-
-<button type="button" onclick="location.href='/member/update'">회원정보수정</button>
-<button type="button" onclick="location.href='/member/delete'">회원탈퇴</button>
+<div id="Updateall">
+<button type="button" id="update" onclick="location.href='/member/update'">회원정보수정</button>
+<button type="button"   id="delete" onclick="location.href='/member/delete'">회원탈퇴</button>
 <br/><br/>
+</div>
 
 <hr />
 <a id="pointHistory" href="/point/history">포인트 사용내역 보기 </a>
