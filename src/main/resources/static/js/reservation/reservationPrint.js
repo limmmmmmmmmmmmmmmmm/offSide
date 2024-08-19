@@ -57,7 +57,7 @@ function myReservationPrint() {     console.log('myReservationPrint()');
                         예약 완료
                     </div>
                     <div>
-                        <button type="button" onclick="cancellation(${r.bno})">예약 취소하기</button>
+                        <button type="button" onclick="location.href='#'">예약 취소하기</button>
                     </div>
                 </div> <br>
                 `
@@ -71,18 +71,19 @@ function myReservationPrint() {     console.log('myReservationPrint()');
 
 // 회원 구장 예약 취소
 function cancellation(bno){
+
     $.ajax({
-                async : false,
-                method : 'put',
-                data : {bno : bno},
-                url : "/reservation/stadiumcancellation",
-                success : (r)=>{ console.log(r);
-                    if(r){
-                        alert('취소 성공');
-                        myReservationPrint();
-                    } else{
-                        alert('취소 실패');
-                    }
-                }     // success end
-            });  // ajax end
-    }   // cancellation end
+            async : false,
+            method : 'put',
+            data : {bno : bno},
+            url : "/reservation/stadiumcancellation",
+            success : (r)=>{ console.log(r);
+                if(r){
+                    alert('취소 성공');
+                    myReservationPrint();
+                } else{
+                    alert('취소 실패');
+                }
+            }     // success end
+        });  // ajax end
+}   // cancellation end

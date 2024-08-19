@@ -8,6 +8,7 @@ readUpdate();
 //게시물 bno 별 개별조회
 function readUpdate(){console.log('readUpdate()');
     let board = {}; // 이거는 왜 넣었는지 모르겠다
+
         $.ajax({
             async : false ,
             method:'get',
