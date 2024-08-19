@@ -124,7 +124,7 @@ public class ReservationDao extends Dao {
             ps.setInt( 2 , mno);
             ps.setInt( 3 , bno);
             int count = ps.executeUpdate();
-            if (count ==1 )return true;
+            if (count == 1 )return true;
 
         }catch (Exception e){ System.out.println(e);}
         return false;

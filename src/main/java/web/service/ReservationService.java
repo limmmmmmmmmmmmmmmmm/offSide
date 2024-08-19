@@ -58,12 +58,9 @@ public class ReservationService {
             return false;
         }
 
-
         // [1-3 ] 전체 인원 예약전에 현재 구장 예약인원수 에 따른 제한 , 12명
         int result4 = reservationDao.stadiumReservationCount( bno ); // 현개 구장의 상태가 1(예약중)인 레코드 총 개수 세기 . select count(*) from reservation where bstate = 1 and bno = ?
         if( result4 >= 12 ){ return false; } // 12명 이상이면 예약 실패
-
-
 
         // [1] 구장 예약
         // 내가 예약했던 구장인지 체크
