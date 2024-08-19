@@ -1,0 +1,85 @@
+/* =============== 공통 CSS =============== */
+*{
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* ============= 레이아웃 CSS ============= */
+#footer{
+    width: 500px;
+    margin: 0 auto;
+    height : auto ;
+    background-color: #282b33;
+}
+
+
+/*===========글씨============ */
+*{
+    
+}
+
+#firstLine,#secondLine{
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+    font-size: 11px;
+}
+#secondLine > div > div {
+    margin-top: 10px;font-size: 11px;
+}
+#firstLine > div > div {
+    margin-top: 10px;font-size: 11px;
+}
+#rightcontent{
+    margin-left: 15px;
+}
+
+#thirdLine{
+    margin: 20px;
+}
+#thirdLine > div{
+    margin-top: 10px;
+    font-size: 11px;
+}
+#firstcneter{
+    margin-right: 20px;
+}
+
+h6{
+    color: white;
+    font-size: 13px ;
+}
+
+.leftcontent1{
+    margin-right: 150px;
+}
+.leftcontent2{
+    margin-right: 150px;
+}
+
+.rightcontent{
+    position: relative;
+    top: 18px;
+}
+#thirdLine > h4{
+    color: white;
+    font-weight: bold; /* 텍스트를 굵게 만듭니다. */
+    font-style: italic; /* 텍스트를 기울입니다. */
+    text-decoration: underline; /* 밑줄을 추가합니다. */
+    text-decoration-color: yellow; /* 밑줄 색상을 노란색으로 설정합니다. */
+}
+
+.leftcontent1,.firstcneter,.rightcontent,.leftcontent2,.social,#thirdLine > div{
+    color: #999;
+}
