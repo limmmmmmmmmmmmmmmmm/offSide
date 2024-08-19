@@ -60,17 +60,35 @@ function boardPrint() {     console.log('boardPrint()');
                     </div>
                 `;
 
+        // 내가 예약한 구장인지 체크 ajax
         $.ajax({
             async : false ,
             method : 'get' ,
             url : "reservation/effectiveness" ,
             data : { bno : b.bno } ,
             success : result2 => {
-                if( result2 ){ // 만약에 현재 bno가 내가 예약한 bno 이면 구장 예약중 이고 아니면 구장 예약 버튼
-                    html += `구장 예약 중`
-                }else{
-                    html += `<div> <button type="button" onclick="reservation(${b.bno})"> 구장 예약 </button>  </div>`
-                }
+
+                // - 현재 구장의 예약인원수 가져오는 ajax
+                $.ajax({
+                    async : false ,
+                    method : "get" ,
+                    url : "/reservation/count" ,
+                    data : { bno : b.bno } ,
+                    success : result3 => {
+                            // 1.  만약에 인원수가 12명 이상이면 예약 마감
+                            if( result3 >=12 ){
+                                html += `예약마감`
+                            } else if( result2 ){ // 만약에 현재 bno가 내가 예약한 bno 이면 구장 예약중 이고 아니면 구장 예약 버튼
+                                 html += `구장 예약 중`
+                             }else{
+                                 html += `<div> <button type="button" onclick="reservation(${b.bno})"> 구장 예약 </div><div>${ result3 } / 12 </button></div>`
+                             }
+                    }
+                })
+
+
+
+
             }
         });
 

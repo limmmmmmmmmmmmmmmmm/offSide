@@ -100,6 +100,49 @@ public class ReservationDao extends Dao {
         return false;
     }// effectiveness end
 
+    // 내가 예약햇던 구장인지 체크
+    public boolean stadiumReservationMyCheck( int mno , int bno){
+        try {
+            String sql = "select * from reservation where bno = ? and mno = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt( 1 , mno);
+            ps.setInt( 2 , bno);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){ return true;
+            }
+
+        }catch (Exception e){ System.out.println(e);}
+        return false;
+    }   // stadiumReservationMyCheck end
+
+    // [1-2] 취소 했다가 다시 구장 예약 , 상태 변경
+    public boolean stadiumReservationUpdate( int rstate ,int mno ,  int bno ){
+        try {
+            String sql = "update reservation set rstate = ? where bno = ? and mno = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt( 1 , rstate);
+            ps.setInt( 2 , mno);
+            ps.setInt( 3 , bno);
+            int count = ps.executeUpdate();
+            if (count ==1 )return true;
+
+        }catch (Exception e){ System.out.println(e);}
+        return false;
+    } // stadiumReservationUpdate end
+
+    // [1-3 ] 예약전에 현재 구장 예약인원수 에 따른 제한 , 12명
+    public int stadiumReservationCount( int bno ){
+        try {
+            String sql = " select count(*) from reservation where rstate = 1 and bno = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1 , bno);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                return rs.getInt(1);
+            }
+        }catch (Exception e){System.out.println(e);}
+        return 0;
+    }   // stadiumReservationCount end
 
 
 }   // ReservationDao end

@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import web.model.dao.BoardDao;
 import web.model.dao.PointlogDao;
 import web.model.dao.ReservationDao;
-import web.model.dto.MemberDto;
+import web.model.dto.*;
 
 import java.util.List;
 import java.util.Map;
-import web.model.dto.BoardDto;
+
 import web.model.dto.MemberDto;
-import web.model.dto.PointlogDto;
 
 import java.time.LocalDate;
 
@@ -39,7 +38,7 @@ public class ReservationService {
         return reservationDao.myReservationPrint(loginMno);
     }
 
-
+    // 구장 예약 처리
     public boolean stadiumReservation(int bno){
 
         // boardDto에 bPrice 넣어주기
@@ -59,21 +58,29 @@ public class ReservationService {
             return false;
         }
 
+
+        // [1-3 ] 전체 인원 예약전에 현재 구장 예약인원수 에 따른 제한 , 12명
+        int result4 = reservationDao.stadiumReservationCount( bno ); // 현개 구장의 상태가 1(예약중)인 레코드 총 개수 세기 . select count(*) from reservation where bstate = 1 and bno = ?
+        if( result4 >= 12 ){ return false; } // 12명 이상이면 예약 실패
+
+
+
         // [1] 구장 예약
+        // 내가 예약했던 구장인지 체크
+        boolean result3 = reservationDao.stadiumReservationMyCheck(  loginMto , bno ); // 내가 해당 구장을 예약한 기록이 있는지 체크 // select
+            if( result3 ){ // 예약한적이 있으면
+                // [1-2] 취소 했다가 다시 구장 예약 , 상태 변경
+                reservationDao.stadiumReservationUpdate( 1 , loginMto , bno ); // update
+            }else{ // 예약한적이 한번도 없던 구장이 였다면
+                // [1-1] 최초 구장 예약 , 레코드추가
+                boolean result = reservationDao.stadiumReservation( 1 , loginMto , bno );
+                if( !result ){ return false; } // 구장예약 실패
+        }
 
-        // [1-1] 최초 구장 예약
-        boolean result = reservationDao.stadiumReservation( 1 , loginMto , bno );
-        if( result == false ){ return false; } // 구장예약 실패
-        // [1-2] 취소 했다가 다시 구장 예약 , 상태 변경
 
-        // [1-3 ] 현재 구장 예약인원수 에 따른 제한
-
-        // [1-4 ] 구장 날짜가 지나면 예약불가.
-
+        LocalDate localDate = LocalDate.now();// 현재시간 구하는 함수
         // 구장예약 성공
         // [2] 구장 예약 에 따른 포인트 로그 처리
-        // 현재시간 구하는 함수
-        LocalDate localDate = LocalDate.now();
         PointlogDto pointlogDto = new PointlogDto();
         pointlogDto.setPindecrease(-boardPrice);
         pointlogDto.setPreason("구장신청");
@@ -131,6 +138,11 @@ public class ReservationService {
         return reservationDao.effectiveness(bno , mno ,rstate);
 
     }// effectiveness end
+
+    // 구장 예약 인원수 체크
+    public int stadiumReservationCount( int bno ) {
+        return reservationDao.stadiumReservationCount(bno); // 현개 구장의 상태가 1(예약중)인 레코드 총 개수 세기 . select count(*) from reservation where bstate = 1 and bno = ?
+    }
 
 
 

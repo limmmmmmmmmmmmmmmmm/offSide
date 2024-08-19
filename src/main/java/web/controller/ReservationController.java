@@ -40,4 +40,12 @@ public class ReservationController {
 
     }// effectiveness end
 
+    // 구장 예약 인원수 제한 표시
+    @GetMapping("/count")
+    public int stadiumReservationCount(int bno){
+      return reservationService.stadiumReservationCount(bno);
+
+    }
+
+
 }
